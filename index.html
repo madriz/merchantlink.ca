@@ -745,10 +745,7 @@
           <p class="form-header-title">Request a briefing</p>
           <p class="form-header-sub">We'll follow up within one business day.</p>
         </div>
-        <form id="briefing-form"
-              action="https://api.web3forms.com/submit"
-              method="POST"
-              novalidate>
+        <form id="briefing-form" novalidate>
 
           <!-- Web3Forms access key -->
           <input type="hidden" name="access_key" value="dc0301b3-9a83-482e-b36a-9e558f9f03d3">
@@ -911,7 +908,7 @@
     submitSpinner.style.display = 'inline';
 
     try {
-      const res = await fetch(form.action, {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
         body: new FormData(form),
@@ -940,5 +937,23 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-['problem-grid','merchant-showcase','revenue-grid','pilot-commits','req-grid'].forEach(cls => {
-  do
+
+// Force-reveal anything already in viewport on load (handles above-fold and short pages)
+function revealAll() {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(function(el) {
+    var rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) el.classList.add('visible');
+  });
+}
+revealAll();
+window.addEventListener('scroll', revealAll, { passive: true });
+
+// Fallback: if IntersectionObserver never fires (e.g. local file), reveal everything after 800ms
+setTimeout(function() {
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    el.classList.add('visible');
+  });
+}, 800);
+</script>
+</body>
+</html>
