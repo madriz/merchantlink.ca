@@ -893,7 +893,8 @@ function checkDemoPassword() {
   const input = document.getElementById('demo-pwd-input');
   const error = document.getElementById('demo-pwd-error');
   if (input.value === 'OpenBankingMoat2026!') {
-    window.location.href = 'https://demo.merchantlink.ca';
+    window.open('https://demo.merchantlink.ca', '_blank');
+    hideDemoModal();
   } else {
     error.textContent = 'Incorrect password. Contact us for access.';
     input.classList.add('shake');
