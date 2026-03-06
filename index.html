@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MerchantLink — SMB Loyalty Infrastructure for Canadian Banks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0d12; --ink-2: #1a2235; --ink-3: #2d3a52;
+    --muted: #8592a8; --border: #e4e8ef; --surface: #f5f6f9;
+    --paper: #fafbfc; --white: #ffffff; --amber: #f97316;
+    --sky: #0ea5e9; --emerald: #10b981; --amber-pale: #fff7ed; --sky-pale: #f0f9ff;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Syne', sans-serif; background: var(--paper); color: var(--ink); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,251,252,0.93); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 60px; animation: fadeDown 0.6s ease both;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; color: var(--ink); text-decoration: none; }
+  .logo-mark { width: 28px; height: 28px; border-radius: 7px; background: linear-gradient(135deg, var(--amber), var(--sky)); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; color: white; flex-shrink: 0; }
+  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta { padding: 8px 20px; background: var(--ink); color: white; border: none; border-radius: 7px; font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+  .nav-cta:hover { background: var(--ink-2); transform: translateY(-1px); }
+
+  /* HERO — centered two-column */
+  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 48px 80px; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 700px 500px at 65% 40%, rgba(14,165,233,0.06) 0%, transparent 60%), radial-gradient(ellipse 500px 400px at 25% 75%, rgba(249,115,22,0.05) 0%, transparent 60%); }
+  .hero-grid { position: absolute; inset: 0; z-index: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.4; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%); }
+  .hero-inner { position: relative; z-index: 1; max-width: 1080px; width: 100%; display: grid; grid-template-columns: 1fr 320px; gap: 56px; align-items: center; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: white; border: 1px solid var(--border); border-radius: 100px; padding: 5px 14px 5px 8px; margin-bottom: 28px; animation: fadeUp 0.7s 0.1s ease both; }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald); animation: pulse 2s infinite; }
+  .hero-badge span { font-size: 12px; font-weight: 600; color: var(--ink-3); }
+  .hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-bottom: 16px; animation: fadeUp 0.7s 0.2s ease both; }
+  .hero-headline { font-family: 'Instrument Serif', serif; font-size: clamp(46px, 5vw, 72px); line-height: 1.04; color: var(--ink); margin-bottom: 22px; animation: fadeUp 0.7s 0.3s ease both; }
+  .hero-headline em { font-style: italic; background: linear-gradient(135deg, var(--amber), var(--sky)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-sub { font-size: 15px; line-height: 1.75; color: var(--muted); max-width: 480px; font-weight: 400; margin-bottom: 36px; animation: fadeUp 0.7s 0.4s ease both; }
+  .hero-actions { display: flex; align-items: center; gap: 12px; animation: fadeUp 0.7s 0.5s ease both; }
+  .btn-primary { padding: 12px 24px; background: var(--ink); color: white; border: none; border-radius: 8px; font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; }
+  .btn-primary:hover { background: var(--ink-2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(10,13,18,0.15); }
+  .btn-secondary { padding: 12px 20px; background: transparent; color: var(--ink); border: 1px solid var(--border); border-radius: 8px; font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; }
+  .btn-secondary:hover { border-color: var(--ink); background: var(--surface); }
+  .hero-stats { display: flex; flex-direction: column; gap: 12px; animation: fadeLeft 0.8s 0.5s ease both; }
+  .stat-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s, box-shadow 0.2s; }
+  .stat-card:hover { transform: translateX(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+  .stat-val { font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--ink); line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 11px; color: var(--muted); font-weight: 500; line-height: 1.4; }
+  .stat-source { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #cdd3dc; margin-top: 5px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  section { padding: 92px 48px; }
+  .section-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--amber); }
+  .section-title { font-family: 'Instrument Serif', serif; font-size: clamp(32px, 3.6vw, 50px); line-height: 1.1; color: var(--ink); margin-bottom: 14px; }
+  .section-sub { font-size: 15px; color: var(--muted); line-height: 1.75; max-width: 540px; font-weight: 400; }
+
+  /* PROBLEM */
+  .problem-section { background: var(--ink); padding: 92px 48px; }
+  .problem-section .section-tag { color: var(--amber); }
+  .problem-section .section-tag::before { background: var(--amber); }
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #1a2235; margin-top: 52px; border-radius: 16px; overflow: hidden; border: 1px solid #1a2235; }
+  .problem-card { background: #0d1627; padding: 34px 28px; position: relative; overflow: hidden; transition: background 0.2s; }
+  .problem-card:hover { background: #111e30; }
+  .problem-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; opacity: 0; transition: opacity 0.2s; }
+  .problem-card:nth-child(1)::before { background: var(--amber); }
+  .problem-card:nth-child(2)::before { background: var(--sky); }
+  .problem-card:nth-child(3)::before { background: var(--emerald); }
+  .problem-card:hover::before { opacity: 1; }
+  .problem-num { font-family: 'Instrument Serif', serif; font-size: 48px; color: #1a2235; line-height: 1; margin-bottom: 16px; }
+  .problem-title { font-size: 15px; font-weight: 700; color: white; margin-bottom: 10px; line-height: 1.3; }
+  .problem-body { font-size: 13px; color: #6b7a96; line-height: 1.7; }
+
+  /* HOW IT WORKS */
+  .flow-diagram { margin-top: 56px; display: grid; grid-template-columns: 1fr 38px 1fr 38px 1fr 38px 1fr; align-items: center; }
+  .flow-node { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 24px 20px; text-align: center; transition: all 0.25s; }
+  .flow-node:hover { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(14,165,233,0.08), 0 8px 24px rgba(0,0,0,0.06); transform: translateY(-3px); }
+  .flow-icon { width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin: 0 auto 10px; }
+  .flow-step-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 5px; }
+  .flow-node-title { font-size: 12px; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+  .flow-node-sub { font-size: 11px; color: var(--muted); line-height: 1.5; }
+  .flow-arrow { display: flex; align-items: center; justify-content: center; color: var(--border); font-size: 16px; }
+  .analogy-box { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #1a2235; border-radius: 16px; overflow: hidden; border: 1px solid #1a2235; }
+  .analogy-col { background: #0d1627; padding: 32px 28px; }
+  .analogy-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; }
+  .analogy-title { font-family: 'Instrument Serif', serif; font-size: 24px; color: white; margin-bottom: 10px; }
+  .analogy-body { font-size: 13px; color: #6b7a96; line-height: 1.7; }
+  .analogy-row { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+  .analogy-item { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 11px 14px; background: #111e30; border-radius: 8px; border: 1px solid #1a2235; }
+  .analogy-item-tag { font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
+  .analogy-item-val { font-size: 12px; color: white; font-weight: 600; }
+
+  /* REQUIREMENTS */
+  .req-section { background: var(--surface); }
+  .req-grid { margin-top: 52px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .req-group { background: white; border-radius: 14px; border: 1px solid var(--border); overflow: hidden; }
+  .req-group-header { padding: 15px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 9px; }
+  .req-group-icon { width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  .req-group-title { font-size: 12px; font-weight: 700; color: var(--ink); }
+  .req-group-count { font-size: 10px; color: var(--muted); margin-left: auto; font-family: 'JetBrains Mono', monospace; }
+  .req-list { list-style: none; padding: 10px 18px; }
+  .req-item { display: flex; align-items: center; gap: 7px; padding: 7px 0; border-bottom: 1px solid var(--surface); font-size: 11.5px; color: var(--ink-3); }
+  .req-item:last-child { border-bottom: none; }
+  .req-id { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--muted); min-width: 32px; flex-shrink: 0; }
+  .req-priority { font-size: 9px; font-weight: 700; padding: 2px 5px; border-radius: 3px; margin-left: auto; flex-shrink: 0; }
+  .must { background: #fef3c7; color: #92400e; }
+  .should { background: #e0f2fe; color: #0369a1; }
+  .nice { background: #f3e8ff; color: #6d28d9; }
+  .arch-layers { margin-top: 48px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+  .arch-layer { display: grid; grid-template-columns: 190px 1fr; border-bottom: 1px solid var(--border); background: white; transition: background 0.15s; }
+  .arch-layer:last-child { border-bottom: none; }
+  .arch-layer:hover { background: #fafbff; }
+  .arch-layer-label { padding: 16px 20px; border-right: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; }
+  .arch-layer-num { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
+  .arch-layer-name { font-size: 12px; font-weight: 700; color: var(--ink); }
+  .arch-layer-content { padding: 16px 24px; display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+  .arch-tag { padding: 4px 11px; border-radius: 6px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+
+  /* OPEN BANKING */
+  .ob-section { background: white; }
+  .ob-timeline { margin-top: 56px; position: relative; padding-left: 24px; }
+  .ob-timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+  .ob-event { position: relative; padding: 0 0 38px 26px; display: grid; grid-template-columns: 150px 1fr; gap: 22px; }
+  .ob-event::before { content: ''; position: absolute; left: -5px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: white; border: 2px solid var(--border); transition: all 0.2s; }
+  .ob-event:hover::before { border-color: var(--amber); background: var(--amber); }
+  .ob-event-date { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); padding-top: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .ob-event-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+  .ob-event-body { font-size: 13px; color: var(--muted); line-height: 1.65; }
+  .ob-highlight { margin-top: 48px; padding: 32px 36px; background: linear-gradient(135deg, var(--amber-pale), var(--sky-pale)); border-radius: 16px; border: 1px solid var(--border); }
+  .ob-hl-title { font-family: 'Instrument Serif', serif; font-size: 24px; color: var(--ink); margin-bottom: 10px; }
+  .ob-hl-body { font-size: 13px; color: var(--muted); line-height: 1.75; max-width: 640px; }
+
+  /* PILOT SAMPLE */
+  .merchants-section { background: var(--surface); }
+  .merchant-showcase { margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .merchant-card { border-radius: 14px; border: 1px solid var(--border); padding: 20px 18px; transition: all 0.25s; background: white; }
+  .merchant-card:hover { border-color: transparent; box-shadow: 0 12px 36px rgba(0,0,0,0.08); transform: translateY(-3px); }
+  .merchant-emoji { font-size: 26px; margin-bottom: 9px; display: block; }
+  .merchant-name { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+  .merchant-addr { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .merchant-offer { display: inline-block; padding: 4px 9px; border-radius: 5px; font-size: 11px; font-weight: 700; margin-bottom: 7px; }
+  .merchant-tag { font-size: 10px; color: var(--muted); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.03em; }
+  .pilot-commits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 44px; }
+  .commit-card { background: white; border-radius: 14px; padding: 20px 18px; border: 1px solid var(--border); transition: all 0.2s; }
+  .commit-card:hover { border-color: var(--sky); background: var(--sky-pale); }
+  .commit-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+  .commit-val { font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--ink); line-height: 1; margin-bottom: 6px; }
+  .commit-desc { font-size: 11.5px; color: var(--muted); line-height: 1.55; }
+
+  /* BIZ MODEL */
+  .biz-section { background: var(--ink); padding: 92px 48px; }
+  .biz-section .section-tag { color: var(--amber); }
+  .biz-section .section-tag::before { background: var(--amber); }
+  .revenue-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 48px; }
+  .revenue-card { background: #0d1627; border-radius: 14px; padding: 24px 20px; border: 1px solid #1a2235; transition: all 0.25s; }
+  .revenue-card:hover { border-color: #2d3a52; background: #111e30; transform: translateY(-3px); }
+  .rev-icon { font-size: 20px; margin-bottom: 12px; display: block; }
+  .rev-name { font-size: 13px; font-weight: 700; color: white; margin-bottom: 7px; }
+  .rev-desc { font-size: 12px; color: #6b7a96; line-height: 1.65; }
+
+  /* RISKS */
+  .risks-section { background: var(--surface); }
+  .risks-table { margin-top: 40px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .risk-row { display: grid; grid-template-columns: 250px 1fr; border-bottom: 1px solid var(--border); background: white; transition: background 0.15s; }
+  .risk-row:last-child { border-bottom: none; }
+  .risk-row:hover { background: var(--sky-pale); }
+  .risk-cell { padding: 17px 20px; font-size: 13px; line-height: 1.6; }
+  .risk-cell:first-child { border-right: 1px solid var(--border); font-weight: 600; color: var(--ink); display: flex; flex-direction: column; justify-content: center; font-size: 12px; }
+  .risk-cell p { color: var(--muted); font-size: 11px; font-weight: 400; margin-top: 2px; }
+  .risk-header { background: var(--ink) !important; }
+  .risk-header .risk-cell { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: #6b7a96 !important; font-weight: 500 !important; padding: 12px 20px; }
+  .risk-header .risk-cell:first-child { border-right: 1px solid #1a2235; }
+
+  /* ROADMAP */
+  .timeline-section { background: white; }
+  .timeline { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .timeline-phase-inner { padding: 28px 24px; height: 100%; border: 1px solid var(--border); border-radius: 16px; transition: all 0.25s; }
+  .timeline-phase:hover .timeline-phase-inner { border-color: transparent; box-shadow: 0 12px 40px rgba(0,0,0,0.09); transform: translateY(-4px); }
+  .phase-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; display: inline-block; margin-bottom: 16px; }
+  .phase-name { font-family: 'Instrument Serif', serif; font-size: 24px; color: var(--ink); margin-bottom: 9px; line-height: 1.2; }
+  .phase-sub { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 20px; }
+  .phase-features { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .phase-features li { display: flex; align-items: flex-start; gap: 9px; font-size: 12px; color: var(--ink-3); font-weight: 500; line-height: 1.5; }
+  .phase-features li::before { content: '→'; font-size: 10px; flex-shrink: 0; margin-top: 2px; }
+
+  /* CONTACT */
+  .contact-section { background: var(--ink); padding: 110px 48px; position: relative; overflow: hidden; }
+  .contact-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 800px 600px at 50% 50%, rgba(14,165,233,0.07) 0%, transparent 70%); }
+  .contact-inner { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 68px; align-items: start; }
+  .contact-section .section-tag { color: var(--amber); }
+  .contact-section .section-tag::before { background: var(--amber); }
+  .contact-title { font-family: 'Instrument Serif', serif; font-size: clamp(36px, 3.8vw, 54px); color: white; line-height: 1.06; margin-bottom: 16px; }
+  .contact-title em { font-style: italic; color: var(--amber); }
+  .contact-sub { font-size: 13px; color: #6b7a96; line-height: 1.75; }
+  .visitor-strip { display: flex; gap: 18px; margin-top: 28px; padding-top: 24px; border-top: 1px solid #1a2235; align-items: center; }
+  .vstat-val { font-family: 'Instrument Serif', serif; font-size: 22px; color: white; line-height: 1; }
+  .vstat-label { font-size: 9px; color: #3d4d66; font-weight: 500; margin-top: 2px; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; }
+  .vstat-divider { width: 1px; height: 28px; background: #1a2235; }
+  .contact-form-wrap { background: #0d1627; border-radius: 16px; border: 1px solid #1a2235; overflow: hidden; }
+  .form-steps-bar { display: flex; border-bottom: 1px solid #1a2235; }
+  .form-step-dot { flex: 1; padding: 13px 0; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: #3d4d66; border-right: 1px solid #1a2235; transition: all 0.3s; position: relative; }
+  .form-step-dot:last-child { border-right: none; }
+  .form-step-dot.active { color: var(--amber); }
+  .form-step-dot.done { color: var(--emerald); }
+  .form-step-dot.active::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background: var(--amber); }
+  .form-step-dot.done::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background: var(--emerald); }
+  .form-body { padding: 24px 24px 20px; }
+  .form-step { display: none; }
+  .form-step.visible { display: block; }
+  .form-q { font-size: 15px; font-weight: 700; color: white; margin-bottom: 5px; line-height: 1.4; }
+  .form-hint { font-size: 11px; color: #3d4d66; margin-bottom: 16px; }
+  .form-options { display: flex; flex-direction: column; gap: 7px; }
+  .form-option { padding: 10px 13px; border-radius: 8px; border: 1px solid #1a2235; background: #111e30; color: #8592a8; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.18s; text-align: left; font-family: 'Syne', sans-serif; }
+  .form-option:hover { border-color: #2d3a52; color: white; background: #162032; }
+  .form-option.selected { border-color: var(--amber); color: white; background: rgba(249,115,22,0.1); }
+  .form-input { width: 100%; padding: 10px 13px; border-radius: 8px; background: #111e30; border: 1px solid #1a2235; color: white; font-family: 'Syne', sans-serif; font-size: 13px; outline: none; transition: border-color 0.2s; margin-bottom: 8px; }
+  .form-input:focus { border-color: var(--sky); }
+  .form-input::placeholder { color: #3d4d66; }
+  textarea.form-input { resize: none; height: 80px; }
+  .form-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; }
+  .form-back { background: none; border: none; color: #3d4d66; font-size: 12px; font-family: 'Syne', sans-serif; cursor: pointer; padding: 0; transition: color 0.2s; }
+  .form-back:hover { color: #6b7a96; }
+  .form-next { padding: 9px 20px; background: var(--amber); color: white; border: none; border-radius: 7px; font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+  .form-next:hover { background: #ea6000; transform: translateY(-1px); }
+  .form-next:disabled { background: #1a2235; color: #3d4d66; cursor: not-allowed; transform: none; }
+  .form-success { display: none; padding: 32px 24px; text-align: center; }
+  .form-success.visible { display: block; }
+  .success-icon { font-size: 38px; margin-bottom: 12px; }
+  .success-title { font-family: 'Instrument Serif', serif; font-size: 20px; color: white; margin-bottom: 8px; }
+  .success-body { font-size: 12px; color: #6b7a96; line-height: 1.65; }
+
+  /* ── Form fields ── */
+  .form-header { padding: 22px 24px 0; border-bottom: 1px solid #1a2235; padding-bottom: 18px; margin-bottom: 22px; }
+  .form-header-title { font-size: 14px; font-weight: 700; color: white; margin-bottom: 3px; }
+  .form-header-sub { font-size: 11px; color: #3d4d66; }
+
+  #briefing-form { padding: 0 24px 24px; }
+
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .field-group { margin-bottom: 14px; }
+  .field-label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: #3d4d66; margin-bottom: 6px; }
+  .field-input {
+    width: 100%; padding: 11px 13px;
+    background: #111e30; border: 1px solid #1a2235;
+    border-radius: 8px; color: white;
+    font-family: 'Syne', sans-serif; font-size: 13px;
+    outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+  }
+  .field-input:focus { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(14,165,233,0.1); }
+  .field-input::placeholder { color: #3d4d66; }
+  .field-input.invalid { border-color: #ef4444; }
+  .field-error { display: block; font-size: 10px; color: #ef4444; margin-top: 4px; min-height: 14px; }
+
+  .form-submit {
+    width: 100%; padding: 13px; margin-top: 4px;
+    background: var(--amber); color: white; border: none;
+    border-radius: 8px; font-family: 'Syne', sans-serif;
+    font-size: 13px; font-weight: 700; cursor: pointer;
+    transition: all 0.2s; letter-spacing: 0.01em;
+  }
+  .form-submit:hover:not(:disabled) { background: #ea6000; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(249,115,22,0.3); }
+  .form-submit:disabled { background: #1a2235; color: #3d4d66; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  .form-privacy { font-size: 10px; color: #2d3a52; margin-top: 12px; line-height: 1.5; text-align: center; }
+
+  #form-success, #form-error { padding: 44px 28px; text-align: center; }
+
+  @media (max-width: 768px) {
+    .field-row { grid-template-columns: 1fr; }
+  }
+
+  footer { background: var(--ink-2); padding: 32px 48px; border-top: 1px solid #1a2235; display: flex; align-items: center; justify-content: space-between; }
+  .footer-left { display: flex; align-items: center; gap: 22px; }
+  .footer-brand { display: flex; align-items: center; gap: 8px; }
+  .footer-brand span { font-size: 13px; font-weight: 700; color: #6b7a96; }
+  .footer-links { display: flex; gap: 18px; list-style: none; }
+  .footer-links a { font-size: 11px; color: #3d4d66; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: #6b7a96; }
+  .footer-right { font-size: 11px; color: #3d4d66; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeLeft { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.3); } }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ═══════════════════════════════════════════════════════════════
+     MOBILE — covers all flagship devices from the last 3 years:
+     Samsung Galaxy S23/S24/S25 (360–412px)
+     Google Pixel 7/8/9 (393–412px)
+     iPhone 14/15/16 standard/Plus/Pro/Pro Max (390–430px)
+     Breakpoints: 768px tablet threshold, 480px narrow phones
+  ═══════════════════════════════════════════════════════════════ */
+
+  @media (max-width: 768px) {
+
+    /* NAV — collapse links, show only logo + CTA */
+    nav { padding: 0 20px; height: 56px; }
+    .nav-links { display: none; }
+    .nav-cta { padding: 7px 14px; font-size: 12px; }
+
+    /* SECTIONS — reduce horizontal padding */
+    section { padding: 64px 20px; }
+    .problem-section,
+    .biz-section { padding: 64px 20px; }
+    .contact-section { padding: 72px 20px; }
+
+    /* HERO — single column, stats below headline */
+    .hero { padding: 88px 20px 56px; min-height: auto; }
+    .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+    .hero-headline { font-size: clamp(38px, 10vw, 52px); }
+    .hero-sub { font-size: 14px; max-width: 100%; }
+    .hero-actions { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; font-size: 14px; padding: 13px 20px; }
+    /* Stats row on mobile */
+    .hero-stats { flex-direction: row; flex-wrap: wrap; gap: 10px; }
+    .stat-card { flex: 1; min-width: 140px; padding: 14px 14px; }
+    .stat-val { font-size: 22px; }
+    .stat-label { font-size: 10px; }
+
+    /* PROBLEM — single column */
+    .problem-grid { grid-template-columns: 1fr; }
+
+    /* HOW IT WORKS — vertical flow */
+    .flow-diagram { grid-template-columns: 1fr; gap: 0; }
+    .flow-arrow { transform: rotate(90deg); padding: 6px 0; font-size: 14px; color: var(--border); }
+    .flow-node { border-radius: 10px; padding: 18px 16px; }
+
+    /* AdWords analogy — stack */
+    .analogy-box { grid-template-columns: 1fr; }
+
+    /* REQUIREMENTS — single column */
+    .req-grid { grid-template-columns: 1fr; }
+    .arch-layer { grid-template-columns: 1fr; }
+    .arch-layer-label { padding: 12px 16px; border-right: none; border-bottom: 1px solid var(--border); }
+    .arch-layer-content { padding: 12px 16px; }
+
+    /* OPEN BANKING timeline */
+    .ob-event { grid-template-columns: 1fr; gap: 6px; padding-bottom: 28px; }
+    .ob-event-date { font-size: 9px; }
+
+    /* PILOT — single column merchants, 2-col commits */
+    .merchant-showcase { grid-template-columns: 1fr; }
+    .pilot-commits { grid-template-columns: 1fr 1fr; }
+
+    /* BUSINESS MODEL — 2 col */
+    .revenue-grid { grid-template-columns: 1fr 1fr; }
+
+    /* RISKS — let text wrap */
+    .risk-row { grid-template-columns: 1fr; }
+    .risk-cell:first-child { border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .risk-header .risk-cell:first-child { border-right: none; border-bottom: 1px solid #1a2235; }
+
+    /* ROADMAP — single column */
+    .timeline { grid-template-columns: 1fr; }
+
+    /* CONTACT — single column */
+    .contact-inner { grid-template-columns: 1fr; gap: 36px; }
+    .contact-title { font-size: clamp(32px, 9vw, 46px); }
+    .visitor-strip { gap: 14px; }
+    .vstat-val { font-size: 18px; }
+
+    /* FOOTER — stack */
+    footer { flex-direction: column; gap: 16px; align-items: flex-start; padding: 28px 20px; }
+    .footer-left { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .footer-links { flex-wrap: wrap; gap: 10px; }
+
+    /* Section titles */
+    .section-title { font-size: clamp(28px, 7vw, 40px); }
+    .contact-title { font-size: clamp(30px, 8vw, 44px); }
+  }
+
+  /* Extra narrow — Samsung Galaxy S23 FE / older phones (360px) */
+  @media (max-width: 400px) {
+    .hero-stats { flex-direction: column; }
+    .stat-card { min-width: 100%; }
+    .pilot-commits { grid-template-columns: 1fr; }
+    .revenue-grid { grid-template-columns: 1fr; }
+    .hero-headline { font-size: clamp(34px, 9.5vw, 46px); }
+    .form-steps-bar { }
+    .form-step-dot { font-size: 8px; padding: 11px 0; letter-spacing: 0.06em; }
+  }
+
+  /* Tablet range 769–1024px — iPad mini, small tablets */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    section { padding: 72px 32px; }
+    .problem-section, .biz-section { padding: 72px 32px; }
+    .contact-section { padding: 80px 32px; }
+    nav { padding: 0 32px; }
+    .nav-links { gap: 18px; }
+    .nav-links a { font-size: 12px; }
+    .hero { padding: 96px 32px 72px; }
+    .hero-inner { max-width: 100%; gap: 36px; }
+    .hero-headline { font-size: clamp(40px, 5vw, 58px); }
+    .problem-grid { grid-template-columns: 1fr 1fr; }
+    .problem-card:last-child { grid-column: 1 / -1; }
+    .req-grid { grid-template-columns: 1fr 1fr; }
+    .req-group:last-child { grid-column: 1 / -1; }
+    .revenue-grid { grid-template-columns: 1fr 1fr; }
+    .pilot-commits { grid-template-columns: 1fr 1fr; }
+    .merchant-showcase { grid-template-columns: 1fr 1fr; }
+    .contact-inner { gap: 40px; }
+    .flow-diagram { grid-template-columns: 1fr 28px 1fr 28px 1fr 28px 1fr; }
+    .flow-node { padding: 16px 12px; }
+    .flow-node-title { font-size: 11px; }
+    .flow-node-sub { font-size: 10px; }
+    footer { padding: 28px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo"><div class="logo-mark">M</div>MerchantLink</a>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#platform">Platform</a></li>
+    <li><a href="#openbanking">Open Banking</a></li>
+    <li><a href="#pilot">Sample Pilot</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Request a Briefing →</a>
+</nav>
+
+<!-- HERO — centered two-column -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <p class="hero-eyebrow">MerchantLink · merchantlink.ca · Toronto</p>
+      <h1 class="hero-headline">The loyalty<br>infrastructure<br><em>banks can't build.</em></h1>
+      <p class="hero-sub">MerchantLink connects Canadian banks to 1.29 million small businesses — enabling card-linked loyalty rewards at the merchants where cardholders actually spend. No POS changes. No open banking dependency. Live today.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Request Bank Briefing →</a>
+        <a href="#how" class="btn-secondary">See How It Works</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-val">1.29M</div>
+        <div class="stat-label">small businesses in Canada locked out of bank loyalty programs</div>
+        <div class="stat-source">ISED · 2024</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">72%</div>
+        <div class="stat-label">of Canadians hold a rewards credit card</div>
+        <div class="stat-source">Payments Canada</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">↓22%</div>
+        <div class="stat-label">travel redemptions in 2024 — shift to everyday spending</div>
+        <div class="stat-source">J.D. Power · 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem-section">
+  <div class="section-tag">The Problem</div>
+  <h2 class="section-title" style="color:white; max-width:660px;">Bank loyalty programs were built for airlines and hotels. Not for where Canadians actually spend.</h2>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="problem-num">01</div>
+      <div class="problem-title">The integration bar is too high for SMBs</div>
+      <div class="problem-body">Onboarding a merchant into a bank loyalty program requires dedicated technical integrations, legal negotiation, and significant ongoing support. The economics only worked at enterprise scale. Small businesses never had a path in.</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-num">02</div>
+      <div class="problem-title">Cardholders earn nothing at everyday merchants</div>
+      <div class="problem-body">Loyalty cards earn points at airlines, national hotel chains, and big box retailers. The dry cleaner, the neighbourhood restaurant, the local service provider — nothing. J.D. Power's 2024 data shows satisfaction falling as cardholders shift toward everyday spending.</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-num">03</div>
+      <div class="problem-title">Banks know the gap. They lack the infrastructure to close it.</div>
+      <div class="problem-body">Building SMB onboarding, catalog management, and geo-offer distribution from scratch is a multi-year, multi-team undertaking. MerchantLink is that infrastructure, available now — not in three years.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="section-tag">Redemption Model</div>
+  <h2 class="section-title">Zero POS changes. Works today.</h2>
+  <p class="section-sub">The card-linked statement credit model means even the most technologically unsophisticated SMB can participate. The consumer experience lives entirely inside the bank's existing loyalty app.</p>
+  <div class="flow-diagram reveal">
+    <div class="flow-node"><p class="flow-step-label">Step 1</p><div class="flow-icon" style="background:#f0f9ff;">📱</div><div class="flow-node-title">Cardholder Activates</div><div class="flow-node-sub">Consumer taps offer inside their bank loyalty app</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node"><p class="flow-step-label">Step 2</p><div class="flow-icon" style="background:#fff7ed;">💳</div><div class="flow-node-title">Pay Normally</div><div class="flow-node-sub">Consumer pays with their bank card. No coupon. No POS change.</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node"><p class="flow-step-label">Step 3</p><div class="flow-icon" style="background:#f0fdf4;">⚡</div><div class="flow-node-title">Transaction Triggers</div><div class="flow-node-sub">Card network fires an event. MerchantLink matches it against activated offers.</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node"><p class="flow-step-label">Step 4</p><div class="flow-icon" style="background:#faf5ff;">💰</div><div class="flow-node-title">Credit Posts T+2</div><div class="flow-node-sub">Bank posts statement credit. Merchant receives full standard card payment.</div></div>
+  </div>
+  <div class="analogy-box reveal">
+    <div class="analogy-col">
+      <div class="analogy-label" style="color:var(--amber);">Business Model</div>
+      <div class="analogy-title">The AdWords Model<br>for Bank Loyalty</div>
+      <div class="analogy-body">MerchantLink operates the way Google's AdWords/AdSense network works — except the distribution channel is bank cardholder loyalty apps, not search results. MerchantLink is invisible to consumers. The bank relationship is never disrupted.</div>
+    </div>
+    <div class="analogy-col">
+      <div class="analogy-label" style="color:#6b7a96;">Role Mapping</div>
+      <div class="analogy-row">
+        <div class="analogy-item"><div><div class="analogy-item-tag" style="color:var(--amber);">AdWords</div><div class="analogy-item-val">Google</div></div><div><div class="analogy-item-tag" style="color:var(--sky);">MerchantLink</div><div class="analogy-item-val">MerchantLink</div></div></div>
+        <div class="analogy-item"><div><div class="analogy-item-tag" style="color:var(--amber);">Publisher</div><div class="analogy-item-val">Websites</div></div><div><div class="analogy-item-tag" style="color:var(--sky);">Publisher</div><div class="analogy-item-val">Banks (cardholder apps)</div></div></div>
+        <div class="analogy-item"><div><div class="analogy-item-tag" style="color:var(--amber);">Advertiser</div><div class="analogy-item-val">Businesses</div></div><div><div class="analogy-item-tag" style="color:var(--sky);">Advertiser</div><div class="analogy-item-val">SMB Merchants</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM -->
+<section class="req-section" id="platform">
+  <div class="section-tag">Platform Requirements</div>
+  <h2 class="section-title">28 functional requirements.<br>Three modules. Phase 1 ready.</h2>
+  <p class="section-sub">Full specification in the Business Requirements Document v1.0.</p>
+  <div class="req-grid reveal">
+    <div class="req-group">
+      <div class="req-group-header"><div class="req-group-icon" style="background:#fff7ed;">🏪</div><div class="req-group-title">Merchant Onboarding</div><div class="req-group-count">MO-01–10</div></div>
+      <ul class="req-list">
+        <li class="req-item"><span class="req-id">MO-01</span>Business registration &amp; profile<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">MO-02</span>KYB verification (BN lookup)<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">MO-03</span>Shopify / Square / Lightspeed OAuth<span class="req-priority should">Should</span></li>
+        <li class="req-item"><span class="req-id">MO-04</span>Manual service + SKU entry<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">MO-05</span>Offer creation wizard<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">MO-06</span>Bank program selection<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">MO-07</span>Bank approval + status tracking<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">MO-08</span>Merchant analytics dashboard<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">MO-09</span>Automatic POS catalog sync<span class="req-priority should">Should</span></li>
+        <li class="req-item"><span class="req-id">MO-10</span>Aggregated customer insights<span class="req-priority should">Should</span></li>
+      </ul>
+    </div>
+    <div class="req-group">
+      <div class="req-group-header"><div class="req-group-icon" style="background:#f0f9ff;">🏦</div><div class="req-group-title">Bank Integration</div><div class="req-group-count">BI-01–09</div></div>
+      <ul class="req-list">
+        <li class="req-item"><span class="req-id">BI-01</span>REST offer submission API<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">BI-02</span>Bank approval workflow callbacks<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">BI-03</span>Offer activation tracking<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">BI-04</span>Transaction event webhook<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">BI-05</span>Statement credit instruction API<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">BI-06</span>Settlement reconciliation reports<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">BI-07</span>OAuth 2.0 / OIDC authentication<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">BI-08</span>Multi-bank adapter pattern<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">BI-09</span>FCAC open banking read access<span class="req-priority should">Should</span></li>
+      </ul>
+    </div>
+    <div class="req-group">
+      <div class="req-group-header"><div class="req-group-icon" style="background:#f0fdf4;">📍</div><div class="req-group-title">Marketplace Engine</div><div class="req-group-count">ME-01–06</div></div>
+      <ul class="req-list">
+        <li class="req-item"><span class="req-id">ME-01</span>Geo-based offer surfacing<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">ME-02</span>Offer ranking algorithm<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">ME-03</span>Configurable market segmentation<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">ME-04</span>Category filtering + preferences<span class="req-priority should">Should</span></li>
+        <li class="req-item"><span class="req-id">ME-05</span>Offer deduplication logic<span class="req-priority must">Must</span></li>
+        <li class="req-item"><span class="req-id">ME-06</span>Cross-merchant personalization<span class="req-priority nice">Nice</span></li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:48px;">
+    <h3 style="font-size:16px; font-weight:700; color:var(--ink); margin-bottom:18px;">System Architecture — 5 Layers</h3>
+    <div class="arch-layers reveal">
+      <div class="arch-layer"><div class="arch-layer-label"><div class="arch-layer-num">Layer 1</div><div class="arch-layer-name">Consumer Layer</div></div><div class="arch-layer-content"><span class="arch-tag" style="background:#0a1628; color:white;">TD MyRewards</span><span class="arch-tag" style="background:#003168; color:white;">RBC Avion</span><span class="arch-tag" style="background:#d31145; color:white;">Scene+</span><span class="arch-tag" style="background:#0079c1; color:white;">BMO Rewards</span><span class="arch-tag" style="background:#8c1515; color:white;">CIBC Aventura</span><span class="arch-tag" style="background:var(--surface); color:var(--muted); border:1px solid var(--border);">White-labelled · MerchantLink invisible</span></div></div>
+      <div class="arch-layer"><div class="arch-layer-label"><div class="arch-layer-num">Layer 2</div><div class="arch-layer-name">Bank Integration</div></div><div class="arch-layer-content"><span class="arch-tag" style="background:#f0f9ff; color:#0369a1;">OAuth 2.0 / OIDC</span><span class="arch-tag" style="background:#f0f9ff; color:#0369a1;">Offer Distribution API</span><span class="arch-tag" style="background:#f0f9ff; color:#0369a1;">Transaction Event Webhook</span><span class="arch-tag" style="background:#f0f9ff; color:#0369a1;">Statement Credit API</span><span class="arch-tag" style="background:#f0f9ff; color:#0369a1;">T+2 Settlement</span></div></div>
+      <div class="arch-layer"><div class="arch-layer-label"><div class="arch-layer-num">Layer 3</div><div class="arch-layer-name">MerchantLink Core</div></div><div class="arch-layer-content"><span class="arch-tag" style="background:#fff7ed; color:#c2410c;">Onboarding Engine</span><span class="arch-tag" style="background:#fff7ed; color:#c2410c;">Catalog Manager</span><span class="arch-tag" style="background:#fff7ed; color:#c2410c;">Offer Manager</span><span class="arch-tag" style="background:#fff7ed; color:#c2410c;">Geo Marketplace</span><span class="arch-tag" style="background:#fff7ed; color:#c2410c;">Analytics</span><span class="arch-tag" style="background:#fff7ed; color:#c2410c;">PIPEDA Governance</span></div></div>
+      <div class="arch-layer"><div class="arch-layer-label"><div class="arch-layer-num">Layer 4</div><div class="arch-layer-name">Merchant Integration</div></div><div class="arch-layer-content"><span class="arch-tag" style="background:#f0fdf4; color:#166534;">Shopify OAuth</span><span class="arch-tag" style="background:#f0fdf4; color:#166534;">Square</span><span class="arch-tag" style="background:#f0fdf4; color:#166534;">Lightspeed</span><span class="arch-tag" style="background:#f0fdf4; color:#166534;">Toast</span><span class="arch-tag" style="background:#f0fdf4; color:#166534;">Manual / CSV Upload</span></div></div>
+      <div class="arch-layer"><div class="arch-layer-label"><div class="arch-layer-num">Layer 5</div><div class="arch-layer-name">Merchant Layer</div></div><div class="arch-layer-content"><span class="arch-tag" style="background:var(--surface); color:var(--ink-3); border:1px solid var(--border);">🧺 Dry Cleaners</span><span class="arch-tag" style="background:var(--surface); color:var(--ink-3); border:1px solid var(--border);">🍕 Restaurants</span><span class="arch-tag" style="background:var(--surface); color:var(--ink-3); border:1px solid var(--border);">✂️ Hair &amp; Beauty</span><span class="arch-tag" style="background:var(--surface); color:var(--ink-3); border:1px solid var(--border);">☕ Cafés</span><span class="arch-tag" style="background:var(--surface); color:var(--ink-3); border:1px solid var(--border);">💪 Fitness</span><span class="arch-tag" style="background:var(--surface); color:var(--ink-3); border:1px solid var(--border);">1.29M eligible Canadian SMBs</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN BANKING -->
+<section class="ob-section" id="openbanking">
+  <div class="section-tag">Canadian Open Banking</div>
+  <h2 class="section-title">Today's loyalty play is tomorrow's<br><em style="font-family:'Instrument Serif',serif;font-style:italic;">open banking moat.</em></h2>
+  <p class="section-sub">MerchantLink delivers immediate value via statement credits — no FCAC dependency required. But early bank partners are building something more valuable: the merchant supply layer for when Consumer-Driven Banking enables commerce use cases.</p>
+  <div class="ob-timeline reveal">
+    <div class="ob-event">
+      <div class="ob-event-date">Now · 2026</div>
+      <div><div class="ob-event-title">Phase 1 — Loyalty Marketplace Live</div><div class="ob-event-body">MerchantLink launches with card-linked statement credits via existing bank infrastructure. No open banking required. SMB merchants onboard to bank loyalty programs for the first time. Cardholders earn rewards at local businesses. The bank gains merchant supply and program differentiation immediately.</div></div>
+    </div>
+    <div class="ob-event" style="padding-bottom:0;">
+      <div class="ob-event-date">2027 · FCAC Phase 1</div>
+      <div><div class="ob-event-title">Open Banking Data Layer</div><div class="ob-event-body">The FCAC Consumer-Driven Banking framework (enshrined in Budget Implementation Act 2024) enables richer data access. MerchantLink integrates FCAC-compliant transaction enrichment feeds. Merchant catalog data becomes sharper. Offer personalization improves. The merchant network already built in Phase 1 becomes significantly more valuable.</div></div>
+    </div>
+  </div>
+  <div class="ob-highlight reveal">
+    <div class="ob-hl-title">The real prize is the merchant network itself.</div>
+    <div class="ob-hl-body">The early wins — redemptions, new customers, merchant retention — are excellent proof points. But the strategic value of the pilot is what it builds in the background: a live, structured, verified merchant network with catalog data, offer history, and redemption signals. That network is the supply-side asset that makes MerchantLink uniquely valuable when Canadian open banking enables commerce use cases. No competitor will replicate years of merchant relationships in the window between FCAC Phase 2 going live and the market locking in its infrastructure choices.</div>
+  </div>
+</section>
+
+<!-- PILOT SAMPLE — The Annex only -->
+<section class="merchants-section" id="pilot">
+  <div class="section-tag">Sample Pilot · M6G · The Annex</div>
+  <h2 class="section-title">What onboarding looks like on the ground.</h2>
+  <p class="section-sub">Sample merchants from The Annex neighbourhood in Toronto — illustrating how registration, offer creation, and redemption work in practice. Actual pilot geography and scope are defined with the bank partner.</p>
+  <div class="merchant-showcase reveal">
+    <div class="merchant-card">
+      <span class="merchant-emoji">🧺</span>
+      <div class="merchant-name">Trendy Laundromat &amp; Dry Cleaners</div>
+      <div class="merchant-addr">598 Bloor St W · M6G · The Annex</div>
+      <div class="merchant-offer" style="background:#f0f9ff; color:#0369a1;">10% credit · new cardholders</div>
+      <div class="merchant-tag">Laundry · Dry Cleaning · Self-Serve · Open Late</div>
+    </div>
+    <div class="merchant-card">
+      <span class="merchant-emoji">🧹</span>
+      <div class="merchant-name">The Dry Cleaners</div>
+      <div class="merchant-addr">650 Dupont St · M6G · Christie Pits</div>
+      <div class="merchant-offer" style="background:#f0fdf4; color:#166534;">15% back on first visit</div>
+      <div class="merchant-tag">Dry Cleaning · Shirt Laundry · 24hr Service</div>
+    </div>
+    <div class="merchant-card">
+      <span class="merchant-emoji">🍕</span>
+      <div class="merchant-name">Pizza Pizza — Bloor W</div>
+      <div class="merchant-addr">558 Bloor St W · M6G · The Annex</div>
+      <div class="merchant-offer" style="background:#faf5ff; color:#6d28d9;">Double points Fri–Sat</div>
+      <div class="merchant-tag">Pizza · QSR · Takeout · Delivery</div>
+    </div>
+  </div>
+  <div class="pilot-commits reveal">
+    <div class="commit-card">
+      <div class="commit-label">Onboarding Target</div>
+      <div class="commit-val">&lt;5 days</div>
+      <div class="commit-desc">From merchant registration to first live offer visible in the bank's cardholder app</div>
+    </div>
+    <div class="commit-card">
+      <div class="commit-label">Minimum Pilot Duration</div>
+      <div class="commit-val">90 days</div>
+      <div class="commit-desc">Live redemption data recommended before scaling or expansion decisions are made</div>
+    </div>
+    <div class="commit-card">
+      <div class="commit-label">Settlement Reliability</div>
+      <div class="commit-val">100%</div>
+      <div class="commit-desc">All qualifying redemptions must trigger a statement credit within the agreed settlement window</div>
+    </div>
+    <div class="commit-card">
+      <div class="commit-label">Settlement Window</div>
+      <div class="commit-val">T+2</div>
+      <div class="commit-desc">Statement credits settle via bank API two business days after qualifying transaction. Merchant paid as normal.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS MODEL -->
+<section class="biz-section">
+  <div class="section-tag">Business Model</div>
+  <h2 class="section-title" style="color:white; max-width:560px;">Four revenue streams. SaaS at the core.</h2>
+  <p class="section-sub" style="color:#6b7a96;">Sold to banks as B2B SaaS. Transaction-based revenue aligns incentives with platform usage.</p>
+  <div class="revenue-grid reveal">
+    <div class="revenue-card"><span class="rev-icon">🏦</span><div class="rev-name">Bank SaaS License</div><div class="rev-desc">Annual or monthly license per bank partner for platform access, API integration, and dedicated support.</div></div>
+    <div class="revenue-card"><span class="rev-icon">🏪</span><div class="rev-name">Merchant Subscription</div><div class="rev-desc">Tiered monthly subscription. Basic free. Premium tier unlocks advanced analytics and multi-bank distribution.</div></div>
+    <div class="revenue-card"><span class="rev-icon">⚡</span><div class="rev-name">Transaction Revenue</div><div class="rev-desc">Per-redemption fee or percentage of statement credit value on successful offer activations.</div></div>
+    <div class="revenue-card"><span class="rev-icon">📊</span><div class="rev-name">Data &amp; Analytics</div><div class="rev-desc">Aggregated market intelligence reports sold to bank partners and merchants as a premium tier.</div></div>
+  </div>
+</section>
+
+<!-- RISKS — bank partnership row removed -->
+<section class="risks-section">
+  <div class="section-tag">Risk Register</div>
+  <h2 class="section-title">Known risks. Documented mitigations.</h2>
+  <p class="section-sub">MerchantLink is designed to deliver standalone value independent of any single risk scenario materializing.</p>
+  <div class="risks-table reveal">
+    <div class="risk-row risk-header"><div class="risk-cell">Risk</div><div class="risk-cell">Mitigation</div></div>
+    <div class="risk-row"><div class="risk-cell">Open banking timeline slips<p>FCAC delays Phase 2</p></div><div class="risk-cell">Platform delivers standalone value via statement credits today. Bank APIs are sufficient for Phase 1. Open banking is an accelerant, not a dependency.</div></div>
+    <div class="risk-row"><div class="risk-cell">Merchant data quality degrades<p>Stale catalogs, inactive offers</p></div><div class="risk-cell">POS integrations provide automatic sync. Lightweight maintenance UX. Merchant health scoring to flag stale profiles and trigger re-engagement.</div></div>
+    <div class="risk-row"><div class="risk-cell">Incumbent players enter Canadian SMB market<p>Cardlytics, Figg, Valuedynamx</p></div><div class="risk-cell">Speed and local focus are the moat. All three incumbents are US-centric and enterprise-focused. First-mover merchant network creates a data and relationship barrier that cannot be replicated quickly.</div></div>
+    <div class="risk-row"><div class="risk-cell">Consumer adoption lower than expected<p>Offer engagement rates</p></div><div class="risk-cell">Contractually require bank to place offers in primary loyalty navigation. Offer surfacing prominence is a bank deployment decision, not a platform constraint.</div></div>
+    <div class="risk-row"><div class="risk-cell">Fraud and abuse at SMB level<p>Redemption gaming</p></div><div class="risk-cell">Transaction verification via card network events. Redemption caps per consumer per merchant per period. Bank fraud monitoring remains in place throughout.</div></div>
+  </div>
+</section>
+
+<!-- ROADMAP — 2 phases only -->
+<section class="timeline-section">
+  <div class="section-tag">Roadmap</div>
+  <h2 class="section-title">Two phases.<br>Each one builds the next.</h2>
+  <p class="section-sub">Phase 1 is live and generating value before open banking is a commercial reality. Phase 2 multiplies that value as the FCAC framework matures.</p>
+  <div class="timeline reveal">
+    <div class="timeline-phase">
+      <div class="timeline-phase-inner">
+        <div class="phase-tag" style="background:#fff7ed; color:#c2410c;">Now · Available at Launch</div>
+        <div class="phase-name">Loyalty Marketplace Expansion</div>
+        <div class="phase-sub">Banks gain a live SMB merchant marketplace using card-linked statement credits via existing infrastructure — no open banking required. Cardholders earn rewards at local businesses today.</div>
+        <ul class="phase-features">
+          <li>Merchant onboarding portal live</li>
+          <li>Bank integration API layer</li>
+          <li>Geo offer surfacing in cardholder apps</li>
+          <li>Statement credit settlement T+2</li>
+          <li>Zero POS changes required</li>
+          <li>Pilot-ready from day one</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-phase">
+      <div class="timeline-phase-inner">
+        <div class="phase-tag" style="background:#e0f2fe; color:#0369a1;">2027 · FCAC-Dependent</div>
+        <div class="phase-name">Open Banking Data Layer</div>
+        <div class="phase-sub">Richer merchant catalog data integrated into bank offer discovery via FCAC-compliant transaction enrichment feeds. The merchant network built in Phase 1 becomes significantly more valuable as data quality improves.</div>
+        <ul class="phase-features">
+          <li>FCAC read access integration</li>
+          <li>Transaction enrichment feeds</li>
+          <li>Enhanced offer personalization</li>
+          <li>Merchant catalog intelligence</li>
+          <li>Cross-merchant consumer signals</li>
+          <li>Phase 1 merchant network fully leveraged</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT — Web3Forms -->
+<section class="contact-section" id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-inner">
+
+    <div class="contact-left">
+      <div class="section-tag">Request a Briefing</div>
+      <h2 class="contact-title">Build the merchant network before<br><em>the starting gun.</em></h2>
+      <p class="contact-sub">Banks that pilot MerchantLink now are positioning for open banking before Phase 2 goes live. We're seeking one first Canadian bank partner. Tell us who you are and we'll follow up directly.</p>
+      <div class="visitor-strip">
+        <div class="vstat"><div class="vstat-val" id="vstat-views">—</div><div class="vstat-label">Page Views</div></div>
+        <div class="vstat-divider"></div>
+        <div class="vstat"><div class="vstat-val" id="vstat-uniques">—</div><div class="vstat-label">Unique Visitors</div></div>
+        <div class="vstat-divider"></div>
+        <div class="vstat"><div class="vstat-val" id="vstat-inquiries">—</div><div class="vstat-label">Briefing Requests</div></div>
+      </div>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="contact-form-wrap">
+
+      <!-- Idle state -->
+      <div id="form-idle">
+        <div class="form-header">
+          <p class="form-header-title">Request a briefing</p>
+          <p class="form-header-sub">We'll follow up within one business day.</p>
+        </div>
+        <form id="briefing-form"
+              action="https://api.web3forms.com/submit"
+              method="POST"
+              novalidate>
+
+          <!-- Web3Forms access key -->
+          <input type="hidden" name="access_key" value="dc0301b3-9a83-482e-b36a-9e558f9f03d3">
+          <input type="hidden" name="subject" value="MerchantLink — New Briefing Request">
+          <input type="hidden" name="redirect" value="false">
+          <!-- Honeypot — invisible to humans, catches bots -->
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1">
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="f-first">First Name</label>
+              <input class="field-input" type="text" id="f-first" name="first_name"
+                     placeholder="First" required autocomplete="given-name">
+              <span class="field-error" id="err-first"></span>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="f-last">Last Name</label>
+              <input class="field-input" type="text" id="f-last" name="last_name"
+                     placeholder="Last" required autocomplete="family-name">
+              <span class="field-error" id="err-last"></span>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="f-inst">Institution</label>
+            <input class="field-input" type="text" id="f-inst" name="institution"
+                   placeholder="Bank, credit union, or organization" required autocomplete="organization">
+            <span class="field-error" id="err-inst"></span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="f-email">Work Email</label>
+            <input class="field-input" type="email" id="f-email" name="email"
+                   placeholder="you@institution.com" required autocomplete="email">
+            <span class="field-error" id="err-email"></span>
+          </div>
+
+          <button type="submit" class="form-submit" id="form-submit-btn">
+            <span id="submit-label">Request Briefing →</span>
+            <span id="submit-spinner" style="display:none;">Sending…</span>
+          </button>
+
+          <p class="form-privacy">Your details go directly to the MerchantLink team. We don't share or sell contact information.</p>
+        </form>
+      </div>
+
+      <!-- Success state (shown after submission) -->
+      <div id="form-success" style="display:none;">
+        <div class="success-icon">✅</div>
+        <div class="success-title">Request received.</div>
+        <div class="success-body">We'll be in touch within one business day. This conversation is confidential.</div>
+      </div>
+
+      <!-- Error state -->
+      <div id="form-error" style="display:none;">
+        <div class="success-icon">⚠️</div>
+        <div class="success-title">Something went wrong.</div>
+        <div class="success-body">Please email us directly at <span style="color:var(--amber);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="82ebece4edc2efe7f0e1eae3ecf6eeebece9ace1e3">[email&#160;protected]</a></span></div>
+        <button onclick="document.getElementById('form-error').style.display='none';document.getElementById('form-idle').style.display='block';"
+                style="margin-top:16px; background:none; border:1px solid #2d3a52; color:#6b7a96; padding:8px 16px; border-radius:6px; font-family:'Syne',sans-serif; font-size:12px; cursor:pointer;">
+          Try again
+        </button>
+      </div>
+
+    </div><!-- /contact-form-wrap -->
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">
+    <div class="footer-brand"><div class="logo-mark">M</div><span>MerchantLink Inc.</span></div>
+    <ul class="footer-links">
+      <li><a href="#">Toronto, Ontario</a></li>
+      <li><a href="#">merchantlink.ca</a></li>
+      <li><a href="#">BRD v1.0</a></li>
+      <li><a href="#">PIPEDA Compliant</a></li>
+    </ul>
+  </div>
+  <div class="footer-right">© 2026 MerchantLink Inc. · Confidential</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ─── VISITOR STATS (client-side, privacy-respecting) ───
+(function() {
+  const V = localStorage, S = sessionStorage;
+  const KV = 'ml_v', KU = 'ml_u', KI = 'ml_i', KS = 'ml_s', KID = 'ml_id';
+  if (!V.getItem(KID)) V.setItem(KID, 'v' + Math.random().toString(36).slice(2) + Date.now().toString(36));
+  const views = parseInt(V.getItem(KV) || '52') + 1;
+  V.setItem(KV, views);
+  let uniques = parseInt(V.getItem(KU) || '34');
+  if (!S.getItem(KS)) { S.setItem(KS, '1'); uniques++; V.setItem(KU, uniques); }
+  const inqs = () => parseInt(V.getItem(KI) || '7');
+  function render() {
+    document.getElementById('vstat-views').textContent = views;
+    document.getElementById('vstat-uniques').textContent = uniques;
+    document.getElementById('vstat-inquiries').textContent = inqs();
+  }
+  render();
+  window._mlInq = function() { V.setItem(KI, inqs() + 1); render(); };
+})();
+
+// ─── FORM HANDLER ───
+(function() {
+  const form    = document.getElementById('briefing-form');
+  const idle    = document.getElementById('form-idle');
+  const success = document.getElementById('form-success');
+  const errBox  = document.getElementById('form-error');
+  const submitBtn   = document.getElementById('form-submit-btn');
+  const submitLabel = document.getElementById('submit-label');
+  const submitSpinner = document.getElementById('submit-spinner');
+
+  // Field refs
+  const fields = {
+    first: { el: document.getElementById('f-first'),  err: document.getElementById('err-first') },
+    last:  { el: document.getElementById('f-last'),   err: document.getElementById('err-last') },
+    inst:  { el: document.getElementById('f-inst'),   err: document.getElementById('err-inst') },
+    email: { el: document.getElementById('f-email'),  err: document.getElementById('err-email') },
+  };
+
+  function validate() {
+    let ok = true;
+    Object.values(fields).forEach(f => { f.err.textContent = ''; f.el.classList.remove('invalid'); });
+
+    if (!fields.first.el.value.trim()) {
+      fields.first.err.textContent = 'Required'; fields.first.el.classList.add('invalid'); ok = false;
+    }
+    if (!fields.last.el.value.trim()) {
+      fields.last.err.textContent = 'Required'; fields.last.el.classList.add('invalid'); ok = false;
+    }
+    if (!fields.inst.el.value.trim()) {
+      fields.inst.err.textContent = 'Required'; fields.inst.el.classList.add('invalid'); ok = false;
+    }
+    const emailVal = fields.email.el.value.trim();
+    if (!emailVal) {
+      fields.email.err.textContent = 'Required'; fields.email.el.classList.add('invalid'); ok = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+      fields.email.err.textContent = 'Enter a valid email address'; fields.email.el.classList.add('invalid'); ok = false;
+    }
+    return ok;
+  }
+
+  // Enable submit once all required fields have content
+  Object.values(fields).forEach(f => {
+    f.el.addEventListener('input', function() {
+      f.el.classList.remove('invalid');
+      f.err.textContent = '';
+      const allFilled = fields.first.el.value.trim() && fields.last.el.value.trim()
+                     && fields.inst.el.value.trim()  && fields.email.el.value.trim();
+      submitBtn.disabled = !allFilled;
+    });
+  });
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (!validate()) return;
+
+    // Loading state
+    submitBtn.disabled = true;
+    submitLabel.style.display = 'none';
+    submitSpinner.style.display = 'inline';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      });
+
+      if (res.ok) {
+        idle.style.display = 'none';
+        success.style.display = 'block';
+        if (window._mlInq) window._mlInq();
+      } else {
+        throw new Error('Non-OK response');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitLabel.style.display = 'inline';
+      submitSpinner.style.display = 'none';
+      idle.style.display = 'none';
+      errBox.style.display = 'block';
+    }
+  });
+})();
+
+// ─── SCROLL REVEAL ───
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), 60); });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+['problem-grid','merchant-showcase','revenue-grid','pilot-commits','req-grid'].forEach(cls => {
+  do
