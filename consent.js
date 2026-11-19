@@ -51,20 +51,45 @@
 
   var banner = null;
 
+  // EN/FR text for the banner. French follows the browser language unless the visitor picks one.
+  var TEXT = {
+    en: { msg: "We use cookies to see how visitors use this site. No ads, no selling of data.", privacy: "Privacy", decline: "Decline", accept: "Accept", label: "Cookie choice", other: "FR", otherLabel: "Afficher en fran\u00e7ais" },
+    fr: { msg: "Nous utilisons des t\u00e9moins pour comprendre comment les visiteurs utilisent ce site. Aucune publicit\u00e9, aucune vente de donn\u00e9es.", privacy: "Confidentialit\u00e9", decline: "Refuser", accept: "Accepter", label: "Choix des t\u00e9moins", other: "EN", otherLabel: "Show in English" }
+  };
+  function lang() {
+    try {
+      var l = localStorage.getItem("ml_lang");
+      if (l === "en" || l === "fr") return l;
+    } catch (e) {}
+    return /^fr/i.test(navigator.language || "") ? "fr" : "en";
+  }
+  function render() {
+    var t = TEXT[lang()];
+    banner.setAttribute("aria-label", t.label);
+    banner.querySelector(".mlc-msg").textContent = t.msg + " ";
+    banner.querySelector(".mlc-privacy").textContent = t.privacy;
+    banner.querySelector(".mlc-decline").textContent = t.decline;
+    banner.querySelector(".mlc-accept").textContent = t.accept;
+    var b = banner.querySelector(".mlc-lang");
+    b.textContent = t.other;
+    b.setAttribute("aria-label", t.otherLabel);
+    banner.setAttribute("lang", lang());
+  }
+
   function build() {
     banner = document.createElement("div");
     banner.id = "ml-cookie-banner";
     banner.setAttribute("role", "region");
-    banner.setAttribute("aria-label", "Cookie choice");
     banner.innerHTML =
-      '<p class="mlc-text">We use cookies to see how visitors use this site. No ads, no selling of data. ' +
-      '<a href="' + privacyHref + '">Privacy</a></p>' +
+      '<p class="mlc-text"><span class="mlc-msg"></span><a class="mlc-privacy" href="' + privacyHref + '"></a></p>' +
       '<div class="mlc-actions">' +
-      '<button type="button" class="mlc-decline">Decline</button>' +
-      '<button type="button" class="mlc-accept">Accept</button>' +
+      '<button type="button" class="mlc-lang"></button>' +
+      '<button type="button" class="mlc-decline"></button>' +
+      '<button type="button" class="mlc-accept"></button>' +
       "</div>";
     var css = document.createElement("style");
     css.textContent =
+      "#ml-cookie-banner[hidden]{display:none!important}" +
       "#ml-cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:1000;max-width:880px;margin:0 auto;" +
       "display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding:14px 18px;background:#121826;color:#b8c0cf;" +
       "border:1px solid #2d3a52;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.4);" +
@@ -75,10 +100,15 @@
       "#ml-cookie-banner button{font:inherit;font-weight:600;padding:8px 18px;border-radius:4px;cursor:pointer}" +
       "#ml-cookie-banner .mlc-decline{background:transparent;color:#e6e9ef;border:1px solid #8592a8}" +
       "#ml-cookie-banner .mlc-accept{background:#f97316;color:#0a0d12;border:1px solid #f97316}" +
+      "#ml-cookie-banner .mlc-lang{background:transparent;color:#8592a8;border:1px solid #2d3a52;padding:8px 12px}" +
       "#ml-cookie-banner button:focus-visible,#ml-cookie-banner a:focus-visible{outline:2px solid #fdba74;outline-offset:2px}" +
       "@media (max-width:480px){#ml-cookie-banner{left:8px;right:8px;bottom:8px}#ml-cookie-banner .mlc-actions{width:100%}" +
-      "#ml-cookie-banner button{flex:1}}";
+      "#ml-cookie-banner .mlc-decline,#ml-cookie-banner .mlc-accept{flex:1}}";
     document.head.appendChild(css);
+    banner.querySelector(".mlc-lang").addEventListener("click", function () {
+      try { localStorage.setItem("ml_lang", lang() === "fr" ? "en" : "fr"); } catch (e) {}
+      render();
+    });
     banner.querySelector(".mlc-accept").addEventListener("click", function () {
       choose("accepted");
     });
@@ -89,6 +119,7 @@
       if (e.key === "Escape" && stored()) hide();
     });
     document.body.appendChild(banner);
+    render();
   }
 
   function show(focus) {
