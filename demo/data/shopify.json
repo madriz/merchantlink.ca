@@ -1,10 +1,12 @@
 {
-  "captured_at": "2026-11-19T10:22:30Z",
+  "captured_at": "2026-11-19T16:36:52Z",
   "source": "Shopify Global Catalog, https://catalog.shopify.com/api/ucp/mcp",
   "status": "ok",
   "query": "65 inch OLED TV Samsung LG",
   "hero": "Cheapest 65-inch OLED TV, Samsung or LG, in Toronto.",
   "catalog_id": "01m7rkz1dmf3b2hj0aqkgbrx4y",
+  "auth_mode": "anonymous (no token, lower limits)",
+  "catalog_mode": "saved catalog_id",
   "agent_profile": "https://shopify.dev/ucp/agent-profiles/examples/2026-08-25/valid-with-capabilities.json",
   "agent_profile_note": "Shopify's published example profile, used until MerchantLink publishes its own.",
   "price_units": "Shopify returns integer cents. Prices here are dollars (amount / 100).",
@@ -76,11 +78,11 @@
       "seller_url": "https://onehoma.com",
       "price": 72,
       "currency": "CAD",
-      "product_url": "https://onehoma.com/products/lg-oled-evo-c3-65-4k-uhd-smart-oled-tv-with-dolby-vision-atmos-gaming-mode-ai-processor-alexa-built-in?variant=67858989809977&_gsid=aUVSFBPjichW&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://onehoma.com/products/lg-oled-evo-c3-65-4k-uhd-smart-oled-tv-with-dolby-vision-atmos-gaming-mode-ai-processor-alexa-built-in?variant=67858989809977&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "new"
       ],
-      "captured_at": "2026-11-19T10:22:28Z",
+      "captured_at": "2026-11-19T16:36:50Z",
       "reference": null,
       "verified_reference": false,
       "percent_of_reference": null,
@@ -100,11 +102,11 @@
       "seller_url": "https://techspirit.ca",
       "price": 997,
       "currency": "CAD",
-      "product_url": "https://techspirit.ca/products/lg-65-class-oledb6e-series-4k-oled-tv-oled65b6eua-six-months-warranty?variant=52951968874727&_gsid=aUVSFBPjichW&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://techspirit.ca/products/lg-65-class-oledb6e-series-4k-oled-tv-oled65b6eua-six-months-warranty?variant=52951968874727&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "secondhand"
       ],
-      "captured_at": "2026-11-19T10:22:28Z",
+      "captured_at": "2026-11-19T16:36:50Z",
       "reference": {
         "mpn": "OLED65B6EUA",
         "source": "HomeGadgets get_price by MPN (Toronto)",
@@ -139,11 +141,11 @@
       "seller_url": "https://www.electromenagersrivesud.ca",
       "price": 1099,
       "currency": "CAD",
-      "product_url": "https://www.electromenagersrivesud.ca/products/televiseur-oled-65-lg-oled65b6eu-boite-ouverte?variant=53777285546168&_gsid=aUVSFBPjichW&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://www.electromenagersrivesud.ca/products/televiseur-oled-65-lg-oled65b6eu-boite-ouverte?variant=53777285546168&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "secondhand"
       ],
-      "captured_at": "2026-11-19T10:22:28Z",
+      "captured_at": "2026-11-19T16:36:50Z",
       "reference": null,
       "verified_reference": false,
       "percent_of_reference": null,
@@ -166,11 +168,11 @@
       "seller_url": "https://gibbyselectronicsupermarket.ca",
       "price": 1297.99,
       "currency": "CAD",
-      "product_url": "https://gibbyselectronicsupermarket.ca/products/lg-oled65b6eua-65-oled-ai-b6e-4k-smart-tv-2026-model?variant=52294539247890&_gsid=aUVSFBPjichW&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://gibbyselectronicsupermarket.ca/products/lg-oled65b6eua-65-oled-ai-b6e-4k-smart-tv-2026-model?variant=52294539247890&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "new"
       ],
-      "captured_at": "2026-11-19T10:22:28Z",
+      "captured_at": "2026-11-19T16:36:50Z",
       "reference": {
         "mpn": "OLED65B6EUA",
         "source": "HomeGadgets get_price by MPN (Toronto)",
@@ -201,11 +203,11 @@
       "seller_url": "https://kjdist.ca",
       "price": 1699,
       "currency": "CAD",
-      "product_url": "https://kjdist.ca/products/lg-oled65c6pua-65-oled-4k-ai-smart-tv-%CE%B111-ai-processor-4k-gen3-webos-26-factory-refurbished?variant=49564630286592&_gsid=aUVSFBPjichW&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://kjdist.ca/products/lg-oled65c6pua-65-oled-4k-ai-smart-tv-%CE%B111-ai-processor-4k-gen3-webos-26-factory-refurbished?variant=49564630286592&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "secondhand"
       ],
-      "captured_at": "2026-11-19T10:22:28Z",
+      "captured_at": "2026-11-19T16:36:50Z",
       "reference": {
         "mpn": "OLED65C6PUA",
         "source": "HomeGadgets get_price by MPN (Toronto)",
@@ -240,11 +242,11 @@
       "seller_url": "https://electroniquehifi.ca",
       "price": 1998,
       "currency": "CAD",
-      "product_url": "https://electroniquehifi.ca/products/samsung-led-tv-65-qn65s90haexzc?variant=52014931378478&_gsid=aUVSFBPjichW&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://electroniquehifi.ca/products/samsung-led-tv-65-qn65s90haexzc?variant=52014931378478&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "new"
       ],
-      "captured_at": "2026-11-19T10:22:28Z",
+      "captured_at": "2026-11-19T16:36:50Z",
       "reference": {
         "mpn": "QN65S90HAEXZC",
         "source": "HomeGadgets snapshot (search_products, Toronto)",
@@ -274,11 +276,11 @@
       "seller_url": "https://www.meublesgillesemond.com",
       "price": 2321.09,
       "currency": "CAD",
-      "product_url": "https://www.meublesgillesemond.com/products/samsung-televiseur-intelligent-oled-4k-de-65-pouces-qn65s85fafxzc?variant=48313964200107&_gsid=aUVSFBPjichW&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://www.meublesgillesemond.com/products/samsung-televiseur-intelligent-oled-4k-de-65-pouces-qn65s85fafxzc?variant=48313964200107&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "new"
       ],
-      "captured_at": "2026-11-19T10:22:28Z",
+      "captured_at": "2026-11-19T16:36:50Z",
       "reference": {
         "mpn": "QN65S85FAFXZC",
         "source": "HomeGadgets snapshot (search_products, Toronto)",
@@ -308,11 +310,11 @@
       "seller_url": "https://www.ayreborn.com",
       "price": 2998,
       "currency": "CAD",
-      "product_url": "https://www.ayreborn.com/products/samsung-qn65s95h-2026-65-oled-tv?variant=53436196192563&_gsid=aUVSFBPjichW&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://www.ayreborn.com/products/samsung-qn65s95h-2026-65-oled-tv?variant=53436196192563&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "new"
       ],
-      "captured_at": "2026-11-19T10:22:28Z",
+      "captured_at": "2026-11-19T16:36:50Z",
       "reference": null,
       "verified_reference": false,
       "percent_of_reference": null,
@@ -332,11 +334,11 @@
       "seller_url": "https://www.thebrick.com",
       "price": 777777,
       "currency": "CAD",
-      "product_url": "https://www.thebrick.com/products/lg-65-c6-oled-4k-smart-webos-tv-oled65c6pua-acc-2026-model?variant=42108241018926&_gsid=aUVSFBPjichW&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://www.thebrick.com/products/lg-65-c6-oled-4k-smart-webos-tv-oled65c6pua-acc-2026-model?variant=42108241018926&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "new"
       ],
-      "captured_at": "2026-11-19T10:22:28Z",
+      "captured_at": "2026-11-19T16:36:50Z",
       "reference": {
         "mpn": "OLED65C6PUA",
         "source": "HomeGadgets get_price by MPN (Toronto)",
@@ -369,11 +371,11 @@
       "seller_url": "https://www.leons.ca",
       "price": 777777,
       "currency": "CAD",
-      "product_url": "https://www.leons.ca/products/lg-65-4k-smart-oled-evo-ai-c6-webos-tv-oled65c6puaacc?variant=42155876155438&_gsid=aUVSFBPjichW&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://www.leons.ca/products/lg-65-4k-smart-oled-evo-ai-c6-webos-tv-oled65c6puaacc?variant=42155876155438&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "new"
       ],
-      "captured_at": "2026-11-19T10:22:28Z",
+      "captured_at": "2026-11-19T16:36:50Z",
       "reference": {
         "mpn": "OLED65C6PUA",
         "source": "HomeGadgets get_price by MPN (Toronto)",
