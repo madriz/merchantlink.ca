@@ -1,0 +1,18 @@
+# MerchantLink
+
+> The verified catalog of Canadian merchants. MerchantLink aggregates the catalogs, offers and payment routes of Canadian small businesses across POS and payment providers (Square, Shopify, Clover, Moneris, Lightspeed and others), so participating banks and declared, verified shopping agents can reach them.
+
+Based in Toronto, Ontario. Not incorporated; the name is MerchantLink.
+
+## Pages
+
+- [Home](https://merchantlink.ca/): what MerchantLink is, why now, how it works, who pays.
+- [For banks](https://merchantlink.ca/banks.html): basket at payment, loyalty redemption, clean room, agent execution on the bank's terms.
+- [For merchants](https://merchantlink.ca/merchants.html): connect once, agent-ready catalog, no forced discounts, zero cost to merchants.
+- [For shoppers and agents](https://merchantlink.ca/shoppers.html): spend points locally, pay by debit or credit, any authorized agent.
+- [How it works](https://merchantlink.ca/how-it-works.html): connect, verify (KYB), harden, open.
+- [Demo](https://merchantlink.ca/demo/): interactive demo, including a real-catalog agent view comparing an open catalog with a curated one.
+
+## Contact
+
+Use the briefing form at the bottom of any page.
