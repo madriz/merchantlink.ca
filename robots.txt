@@ -1,0 +1,5 @@
+# MerchantLink welcomes all crawlers, search engines and AI agents.
+User-agent: *
+Allow: /
+
+Sitemap: https://merchantlink.ca/sitemap.xml
