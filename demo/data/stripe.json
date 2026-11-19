@@ -1,0 +1,20 @@
+{
+  "captured_at": "2026-11-19T10:22:32Z",
+  "source": "Stripe test mode, test_helpers/shared_payment/granted_tokens",
+  "status": "ok",
+  "stripe_version": "2026-09-30.preview",
+  "token_id_prefix": "spt_1UdS",
+  "amount": 135374,
+  "currency": "CAD",
+  "expires_at": "2026-11-19T11:22:31Z",
+  "token_status": "active",
+  "livemode": false,
+  "offer": {
+    "source": "homegadgets",
+    "title": "LG 65\" B5 4K UHD HDR OLED Smart TV - 2025",
+    "merchant": "Visions Electronics",
+    "price_cad": 1198,
+    "tax": "HST 13%",
+    "landed_cad": 1353.74
+  }
+}

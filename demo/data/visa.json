@@ -1,0 +1,27 @@
+{
+  "captured_at": "2026-11-19T10:22:33Z",
+  "source": "Visa Developer sandbox, sandbox.api.visa.com",
+  "status": "partial",
+  "error": "VIC probe connection failed (ECONNRESET). Onboarding items are listed in needs.",
+  "helloworld": {
+    "http": 200,
+    "message": "helloworld",
+    "timestamp": "2026-11-19T10:22:33"
+  },
+  "vic": {
+    "endpoint": "POST /vts/merchant-api-ic/onboarding",
+    "http": 0,
+    "code": null,
+    "message": "connection failed (ECONNRESET)"
+  },
+  "note": "Two-way SSL works. Visa Intelligent Commerce needs onboarding before a sandbox call succeeds.",
+  "needs": [
+    "Visa Intelligent Commerce access for the project \"MerchantLink demo\" (Visa approves each environment).",
+    "VIC API key and shared secret (X-Pay-Token).",
+    "Message Level Encryption: the MLE server certificate, a client MLE private key and its key ID.",
+    "External Client ID and External App ID issued by Visa.",
+    "TRID and BID from the Visa regional product team.",
+    "Visa Token Service sandbox credentials (VTS API key and shared secret).",
+    "A test card enrolled and tokenized in VTS, giving a vProvisionedTokenId and a consumer ID."
+  ]
+}

@@ -1,0 +1,664 @@
+{
+  "captured_at": "2026-11-19T10:22:19Z",
+  "source": "HomeGadgets MCP, https://mcp.homegadgets.ca/mcp",
+  "status": "ok",
+  "query": "Cheapest 65-inch OLED TV, Samsung or LG, in Toronto.",
+  "lookups_used": 12,
+  "note": "Prices are the best NEW in-stock price per product. Average and highest prices are not stored.",
+  "locations": [
+    {
+      "id": "toronto",
+      "city": "Toronto",
+      "province": "ON",
+      "products": [
+        {
+          "product_id": "f3301b29-2bd5-4f45-8868-c1b38f9ddcd8",
+          "name": "LG 65\" B5 4K UHD HDR OLED Smart TV - 2025",
+          "brand": "LG",
+          "model_number": "OLED65B5PUA",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1198,
+          "retailer": "Visions Electronics",
+          "buy_link": "https://www.homegadgets.ca/go/bee22902-2468-449d-a469-afd7793ba3d0?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 6,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65b5pua-65-b5-4k-uhd-hdr-oled-smart-tv-2025",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65b5pua-65-b5-4k-uhd-hdr-oled-smart-tv-2025#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": "The best NEW price is $1,198.00 (Visions Electronics), and it is also the cheapest offer of any condition.",
+          "condition_status": "verified_new",
+          "observed_at": "2026-11-14T16:41:40.24287+00:00"
+        },
+        {
+          "product_id": "580d6f1f-d36f-43a1-9e06-16611c4ef9e7",
+          "name": "LG 65\" 4K Smart OLED TV - OLED65B7",
+          "brand": "LG",
+          "model_number": "65B7",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1249.25,
+          "retailer": "Leon's",
+          "buy_link": "https://www.homegadgets.ca/go/acdbcc1a-b0f6-4961-bb56-a44e477ce1f5?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 1,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/lg-65b7-65-4k-smart-oled-tv-oled65b7",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/lg-65b7-65-4k-smart-oled-tv-oled65b7#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": "The best NEW price is $1,249.25 (Leon's), and it is also the cheapest offer of any condition.",
+          "condition_status": "assumed_new",
+          "observed_at": "2026-11-19T01:17:39.897232+00:00"
+        },
+        {
+          "product_id": "2298f6c8-9163-40e5-80c5-0812a406dace",
+          "name": "LG C4 65\" C4 Series 4K UHD HDR OLED evo webOS Smart TV - 2024",
+          "brand": "LG",
+          "model_number": "OLED65C4PUA",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1298,
+          "retailer": "Visions Electronics",
+          "buy_link": "https://www.homegadgets.ca/go/3bdd9eaf-8d48-4f35-8c19-dd7e4cc50cc6?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 3,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65c4pua-c4-65-c4-series-4k-uhd-hdr-oled-evo-webos-smart-tv",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65c4pua-c4-65-c4-series-4k-uhd-hdr-oled-evo-webos-smart-tv#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": "The best NEW price is $1,298.00 (Visions Electronics), and it is also the cheapest offer of any condition.",
+          "condition_status": "verified_new",
+          "observed_at": "2026-11-14T16:41:40.24287+00:00"
+        },
+        {
+          "product_id": "04ca07fe-32aa-46d6-b35c-0a2004baea83",
+          "name": "65\" OLED S84F 4K Samsung Vision AI Smart TV",
+          "brand": "Samsung",
+          "model_number": "QN65S84FAEXZC",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1299.99,
+          "retailer": "Samsung Canada",
+          "buy_link": "https://www.homegadgets.ca/go/0f9b4e90-badc-42d5-b7f2-5e3439299a7a?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 1,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s84faexzc-65-oled-s84f-4k-samsung-vision-ai-smart-tv",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s84faexzc-65-oled-s84f-4k-samsung-vision-ai-smart-tv#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": "The best NEW price is $1,299.99 (Samsung Canada), and it is also the cheapest offer of any condition.",
+          "condition_status": "assumed_new",
+          "observed_at": "2026-11-14T10:25:24.361115+00:00"
+        },
+        {
+          "product_id": "d350f85c-d343-4cc3-a844-80b522017105",
+          "name": "LG 65\" C3 Series 4K UHD HDR OLED webOS Evo ThinQ AI Smart TV - 2023",
+          "brand": "LG",
+          "model_number": "OLED65C3PUA",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1496.95,
+          "retailer": "Best Buy Canada",
+          "buy_link": "https://www.homegadgets.ca/go/6e130f98-7591-4228-89e4-be3ada360060?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 4,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65c3pua-65-c3-series-4k-uhd-hdr-oled-webos-evo-thinq-ai",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65c3pua-65-c3-series-4k-uhd-hdr-oled-webos-evo-thinq-ai#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": null,
+          "condition_status": null,
+          "observed_at": null
+        },
+        {
+          "product_id": "e6681b7d-ea7a-4580-a00e-ed034d7511a8",
+          "name": "65\" OLED S85H 4K Samsung Vision AI Smart TV (2026)",
+          "brand": "Samsung",
+          "model_number": "QN65S85HAEXZC",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1498,
+          "retailer": "2001 Audio Video",
+          "buy_link": "https://www.homegadgets.ca/go/d165d821-0dab-41df-864b-988fefdaf960?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 29,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s85haexzc-65-oled-s85h-4k-samsung-vision-ai-smart-tv",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s85haexzc-65-oled-s85h-4k-samsung-vision-ai-smart-tv#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": null,
+          "condition_status": null,
+          "observed_at": null
+        },
+        {
+          "product_id": "f4ba50d3-5fae-435b-a069-518ebeaebccb",
+          "name": "LG 65\" CX OLED 4K Smart TV with Thin Q AI and Alpha 9 Gen 3 Intelligent Processor - OLED65CX",
+          "brand": "LG",
+          "model_number": "OLED65CXPUA",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1569,
+          "retailer": "Leon's",
+          "buy_link": "https://www.homegadgets.ca/go/49a21766-b1cd-4a39-b2e3-5d39b4d41b00?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 1,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65cxpua-65-cx-oled-4k-smart-tv-thin-q-ai-alpha-9-gen-3",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65cxpua-65-cx-oled-4k-smart-tv-thin-q-ai-alpha-9-gen-3#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": null,
+          "condition_status": null,
+          "observed_at": null
+        },
+        {
+          "product_id": "1a98f6d4-a027-41f4-b82b-c24e35e307d1",
+          "name": "65\" OLED S88H 4K Samsung Vision AI Smart TV (2026)",
+          "brand": "Samsung",
+          "model_number": "QN65S88HAEXZC",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1698,
+          "retailer": "Visions Electronics",
+          "buy_link": "https://www.homegadgets.ca/go/b07c3dd6-6e31-4bc2-a885-5142e0ae5f4a?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 6,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s88haexzc-65-oled-s88h-4k-samsung-vision-ai-smart-tv",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s88haexzc-65-oled-s88h-4k-samsung-vision-ai-smart-tv#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": null,
+          "condition_status": null,
+          "observed_at": null
+        },
+        {
+          "product_id": "75daad32-4100-45db-8bb2-26ed4fae1e41",
+          "name": "65\" OLED S85F 4K Vision AI Smart TV",
+          "brand": "Samsung",
+          "model_number": "QN65S85FAFXZC",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1709.25,
+          "retailer": "Leon's",
+          "buy_link": "https://www.homegadgets.ca/go/c9cf10ef-c436-46aa-83e3-0c97b7aa4a92?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 6,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s85fafxzc-65-oled-s85f-4k-vision-ai-smart-tv",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s85fafxzc-65-oled-s85f-4k-vision-ai-smart-tv#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": null,
+          "condition_status": null,
+          "observed_at": null
+        },
+        {
+          "product_id": "adc6ff0a-15ae-4181-9539-21ef0891b0f8",
+          "name": "65\" OLED S90H 4K Samsung Vision AI Smart TV (2026)",
+          "brand": "Samsung",
+          "model_number": "QN65S90HAEXZC",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1998,
+          "retailer": "2001 Audio Video",
+          "buy_link": "https://www.homegadgets.ca/go/e25d3387-e4e7-4f5d-b3cb-b03fac2d780e?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 30,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s90haexzc-65-oled-s90h-4k-samsung-vision-ai-smart-tv",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s90haexzc-65-oled-s90h-4k-samsung-vision-ai-smart-tv#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": null,
+          "condition_status": null,
+          "observed_at": null
+        }
+      ]
+    },
+    {
+      "id": "montreal",
+      "city": "Montreal",
+      "province": "QC",
+      "products": [
+        {
+          "product_id": "f3301b29-2bd5-4f45-8868-c1b38f9ddcd8",
+          "name": "LG 65\" B5 4K UHD HDR OLED Smart TV - 2025",
+          "brand": "LG",
+          "model_number": "OLED65B5PUA",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1198,
+          "retailer": "Visions Electronics",
+          "buy_link": "https://www.homegadgets.ca/go/bee22902-2468-449d-a469-afd7793ba3d0?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 6,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65b5pua-65-b5-4k-uhd-hdr-oled-smart-tv-2025",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65b5pua-65-b5-4k-uhd-hdr-oled-smart-tv-2025#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": "The best NEW price is $1,198.00 (Visions Electronics), and it is also the cheapest offer of any condition.",
+          "condition_status": "verified_new",
+          "observed_at": "2026-11-14T16:41:40.24287+00:00"
+        },
+        {
+          "product_id": "580d6f1f-d36f-43a1-9e06-16611c4ef9e7",
+          "name": "LG 65\" 4K Smart OLED TV - OLED65B7",
+          "brand": "LG",
+          "model_number": "65B7",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1249.25,
+          "retailer": "Leon's",
+          "buy_link": "https://www.homegadgets.ca/go/acdbcc1a-b0f6-4961-bb56-a44e477ce1f5?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 1,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/lg-65b7-65-4k-smart-oled-tv-oled65b7",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/lg-65b7-65-4k-smart-oled-tv-oled65b7#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": "The best NEW price is $1,249.25 (Leon's), and it is also the cheapest offer of any condition.",
+          "condition_status": "assumed_new",
+          "observed_at": "2026-11-19T01:17:39.897232+00:00"
+        },
+        {
+          "product_id": "2298f6c8-9163-40e5-80c5-0812a406dace",
+          "name": "LG C4 65\" C4 Series 4K UHD HDR OLED evo webOS Smart TV - 2024",
+          "brand": "LG",
+          "model_number": "OLED65C4PUA",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1298,
+          "retailer": "Visions Electronics",
+          "buy_link": "https://www.homegadgets.ca/go/3bdd9eaf-8d48-4f35-8c19-dd7e4cc50cc6?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 3,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65c4pua-c4-65-c4-series-4k-uhd-hdr-oled-evo-webos-smart-tv",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65c4pua-c4-65-c4-series-4k-uhd-hdr-oled-evo-webos-smart-tv#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": "The best NEW price is $1,298.00 (Visions Electronics), and it is also the cheapest offer of any condition.",
+          "condition_status": "verified_new",
+          "observed_at": "2026-11-14T16:41:40.24287+00:00"
+        },
+        {
+          "product_id": "04ca07fe-32aa-46d6-b35c-0a2004baea83",
+          "name": "65\" OLED S84F 4K Samsung Vision AI Smart TV",
+          "brand": "Samsung",
+          "model_number": "QN65S84FAEXZC",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1299.99,
+          "retailer": "Samsung Canada",
+          "buy_link": "https://www.homegadgets.ca/go/0f9b4e90-badc-42d5-b7f2-5e3439299a7a?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 1,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s84faexzc-65-oled-s84f-4k-samsung-vision-ai-smart-tv",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s84faexzc-65-oled-s84f-4k-samsung-vision-ai-smart-tv#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": "The best NEW price is $1,299.99 (Samsung Canada), and it is also the cheapest offer of any condition.",
+          "condition_status": "assumed_new",
+          "observed_at": "2026-11-14T10:25:24.361115+00:00"
+        },
+        {
+          "product_id": "d350f85c-d343-4cc3-a844-80b522017105",
+          "name": "LG 65\" C3 Series 4K UHD HDR OLED webOS Evo ThinQ AI Smart TV - 2023",
+          "brand": "LG",
+          "model_number": "OLED65C3PUA",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1496.95,
+          "retailer": "Best Buy Canada",
+          "buy_link": "https://www.homegadgets.ca/go/6e130f98-7591-4228-89e4-be3ada360060?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 4,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65c3pua-65-c3-series-4k-uhd-hdr-oled-webos-evo-thinq-ai",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65c3pua-65-c3-series-4k-uhd-hdr-oled-webos-evo-thinq-ai#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": null,
+          "condition_status": null,
+          "observed_at": null
+        },
+        {
+          "product_id": "e6681b7d-ea7a-4580-a00e-ed034d7511a8",
+          "name": "65\" OLED S85H 4K Samsung Vision AI Smart TV (2026)",
+          "brand": "Samsung",
+          "model_number": "QN65S85HAEXZC",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1498,
+          "retailer": "2001 Audio Video",
+          "buy_link": "https://www.homegadgets.ca/go/d165d821-0dab-41df-864b-988fefdaf960?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 27,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s85haexzc-65-oled-s85h-4k-samsung-vision-ai-smart-tv",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s85haexzc-65-oled-s85h-4k-samsung-vision-ai-smart-tv#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": null,
+          "condition_status": null,
+          "observed_at": null
+        },
+        {
+          "product_id": "f4ba50d3-5fae-435b-a069-518ebeaebccb",
+          "name": "LG 65\" CX OLED 4K Smart TV with Thin Q AI and Alpha 9 Gen 3 Intelligent Processor - OLED65CX",
+          "brand": "LG",
+          "model_number": "OLED65CXPUA",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1569,
+          "retailer": "Leon's",
+          "buy_link": "https://www.homegadgets.ca/go/49a21766-b1cd-4a39-b2e3-5d39b4d41b00?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 1,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65cxpua-65-cx-oled-4k-smart-tv-thin-q-ai-alpha-9-gen-3",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/lg-oled65cxpua-65-cx-oled-4k-smart-tv-thin-q-ai-alpha-9-gen-3#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": null,
+          "condition_status": null,
+          "observed_at": null
+        },
+        {
+          "product_id": "1a98f6d4-a027-41f4-b82b-c24e35e307d1",
+          "name": "65\" OLED S88H 4K Samsung Vision AI Smart TV (2026)",
+          "brand": "Samsung",
+          "model_number": "QN65S88HAEXZC",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1698,
+          "retailer": "Visions Electronics",
+          "buy_link": "https://www.homegadgets.ca/go/b07c3dd6-6e31-4bc2-a885-5142e0ae5f4a?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 6,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s88haexzc-65-oled-s88h-4k-samsung-vision-ai-smart-tv",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s88haexzc-65-oled-s88h-4k-samsung-vision-ai-smart-tv#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": null,
+          "condition_status": null,
+          "observed_at": null
+        },
+        {
+          "product_id": "75daad32-4100-45db-8bb2-26ed4fae1e41",
+          "name": "65\" OLED S85F 4K Vision AI Smart TV",
+          "brand": "Samsung",
+          "model_number": "QN65S85FAFXZC",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1709.25,
+          "retailer": "Leon's",
+          "buy_link": "https://www.homegadgets.ca/go/c9cf10ef-c436-46aa-83e3-0c97b7aa4a92?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 6,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s85fafxzc-65-oled-s85f-4k-vision-ai-smart-tv",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s85fafxzc-65-oled-s85f-4k-vision-ai-smart-tv#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": null,
+          "condition_status": null,
+          "observed_at": null
+        },
+        {
+          "product_id": "adc6ff0a-15ae-4181-9539-21ef0891b0f8",
+          "name": "65\" OLED S90H 4K Samsung Vision AI Smart TV (2026)",
+          "brand": "Samsung",
+          "model_number": "QN65S90HAEXZC",
+          "size_in": 65,
+          "panel": "OLED",
+          "best_new_price_cad": 1998,
+          "retailer": "2001 Audio Video",
+          "buy_link": "https://www.homegadgets.ca/go/e25d3387-e4e7-4f5d-b3cb-b03fac2d780e?channel=mcp",
+          "in_stock": true,
+          "retailer_count": 28,
+          "homegadgets_links": {
+            "full_pricing": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s90haexzc-65-oled-s90h-4k-samsung-vision-ai-smart-tv",
+              "label": {
+                "en": "Full pricing on HomeGadgets",
+                "fr": "Prix complets sur HomeGadgets"
+              }
+            },
+            "amazon": {
+              "url": "https://www.homegadgets.ca/tvs/samsung-qn65s90haexzc-65-oled-s90h-4k-samsung-vision-ai-smart-tv#amazon",
+              "label": {
+                "en": "Check Amazon.ca on HomeGadgets",
+                "fr": "Vérifier Amazon.ca sur HomeGadgets"
+              }
+            }
+          },
+          "price_split_summary": null,
+          "condition_status": null,
+          "observed_at": null
+        }
+      ]
+    }
+  ]
+}
