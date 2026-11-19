@@ -2,6 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500});
+// GTM loads only after consent (D-035): at once for a stored Accept, otherwise from consent.js on Accept.
+window.mlLoadGTM = function(){if(window.mlGTMLoaded)return;window.mlGTMLoaded=true;
+// Google Tag Manager, standard snippet
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K3TVBFXW');
+// End Google Tag Manager
+};
+(function(){try{var c=localStorage.getItem('ml_cookie_consent');if(c){document.documentElement.setAttribute('data-ml-consent',c);}if(c==='accepted'){gtag('consent','update',{analytics_storage:'granted'});window.mlLoadGTM();}}catch(e){}})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MerchantLink, home</title>
 <meta name="description" content="MerchantLink: the verified catalog of Canadian merchants, for banks, merchants and authorized shopping agents.">
@@ -44,6 +60,10 @@ a{color:#f97316}a:hover{color:#fdba74}
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3TVBFXW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <div style="background: #0a0d12; color: #e6e9ef; font-family: 'IBM Plex Sans', system-ui, sans-serif; min-height: 100vh; background-image: linear-gradient(#141b29 1px, transparent 1px), linear-gradient(90deg, #141b29 1px, transparent 1px); background-size: 96px 96px">
 <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
 <header class="site-header">
@@ -112,7 +132,7 @@ a{color:#f97316}a:hover{color:#fdba74}
 </section>
 <footer style="padding: 28px 0; border-top: 1px solid #2d3a52; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 13px; color: #8592a8">
 <span>MerchantLink, Toronto, Ontario. Built for PIPEDA and Quebec Law 25.</span>
-<span>merchantlink.ca</span>
+<span style="display: flex; flex-wrap: wrap; gap: 16px"><a href="privacy.html" style="color: #8592a8">Privacy</a><button type="button" data-cookie-settings style="background: none; border: 0; padding: 0; font: inherit; color: #8592a8; text-decoration: underline; cursor: pointer">Cookie settings</button><span>merchantlink.ca</span></span>
 </footer>
 </div>
 </div>
@@ -125,5 +145,6 @@ try{var r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:
 if(r.ok&&j.success){f.reset();s.style.color='#10b981';s.textContent='Received. We will reply within one business day.';}else{throw new Error('x')}}
 catch(err){s.style.color='#f87171';s.textContent='That did not go through. Please try again in a minute.';}b.disabled=false;});})();
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

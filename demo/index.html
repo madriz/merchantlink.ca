@@ -1,15 +1,36 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-hash-page-views>
   <head>
     <meta charset="UTF-8" />
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500});
+// GTM loads only after consent (D-035): at once for a stored Accept, otherwise from consent.js on Accept.
+window.mlLoadGTM = function(){if(window.mlGTMLoaded)return;window.mlGTMLoaded=true;
+// Google Tag Manager, standard snippet
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K3TVBFXW');
+// End Google Tag Manager
+};
+(function(){try{var c=localStorage.getItem('ml_cookie_consent');if(c){document.documentElement.setAttribute('data-ml-consent',c);}if(c==='accepted'){gtag('consent','update',{analytics_storage:'granted'});window.mlLoadGTM();}}catch(e){}})();
+</script>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>MerchantLink demo</title>
-    <script type="module" crossorigin src="./assets/index-D0tjRf4d.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DEdEtm3p.css">
+    <script type="module" crossorigin src="./assets/index-BdcJ7Xi4.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Byiw31-y.css">
   </head>
   <body>
-    <div id="root"></div>
-  </body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3TVBFXW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div id="root"></div>
+  <script src="/consent.js" defer></script>
+</body>
 </html>
