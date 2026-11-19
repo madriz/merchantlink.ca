@@ -1,0 +1,73 @@
+# Weekly refresh of the public demo data on merchantlink.ca (D-032).
+# Source of truth: madriz/MerchantLink-tools, scripts/public-repo/refresh.yml. Copied here by scripts/build-site.sh.
+# No secrets: HomeGadgets MCP is public (D-027), Shopify Catalog search runs anonymously, the Bank of Canada Valet API is public.
+# Writes demo/data/homegadgets.json, shopify.json and fx.json only. stripe.json and visa.json come with each publish.
+# A failed step keeps that source's last good file. The app is never rebuilt: the page fetches these files at runtime.
+name: refresh
+
+on:
+  schedule:
+    - cron: "7 22 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: 1. HomeGadgets
+        continue-on-error: true
+        run: node .github/refresh/homegadgets.mjs
+
+      - name: 2. Shopify Global Catalog (anonymous)
+        continue-on-error: true
+        run: node .github/refresh/shopify.mjs
+
+      - name: 3. Bank of Canada FX
+        continue-on-error: true
+        run: node .github/refresh/fx.mjs
+
+      - name: 4. Scan data files for secrets
+        run: node .github/refresh/scan.mjs
+
+      - name: Status summary
+        run: |
+          {
+            echo "| Source | Status | Captured at | Note |"
+            echo "|---|---|---|---|"
+            for f in homegadgets shopify fx stripe visa; do
+              node -e '
+                const fs = require("fs"); const p = "demo/data/" + process.argv[1] + ".json";
+                if (!fs.existsSync(p)) { console.log("| " + process.argv[1] + " | missing | | |"); process.exit(0); }
+                const d = JSON.parse(fs.readFileSync(p, "utf8"));
+                const la = d.last_attempt ? "this run " + d.last_attempt.status + ": " + d.last_attempt.error + " (kept last good file)" : (d.error || "");
+                console.log("| " + process.argv[1] + " | " + d.status + " | " + d.captured_at + " | " + la.replace(/\|/g, "/") + " |");
+              ' "$f"
+            done
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: 5. Commit changed data files
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add demo/data/homegadgets.json demo/data/shopify.json demo/data/fx.json
+          if git diff --cached --quiet; then
+            echo "No data changes."
+            exit 0
+          fi
+          git commit -m "Refresh $(date -u +%Y-%m-%d)"
+          git push origin HEAD:main
