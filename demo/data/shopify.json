@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-11-19T16:36:52Z",
+  "captured_at": "2026-11-22T22:12:41Z",
   "source": "Shopify Global Catalog, https://catalog.shopify.com/api/ucp/mcp",
   "status": "ok",
   "query": "65 inch OLED TV Samsung LG",
@@ -15,20 +15,20 @@
   "non_cad_dropped": 0,
   "homegadgets_mpn_lookups": 4,
   "homegadgets_mpn_not_carried": [
-    "OLED65B6EU",
-    "QN65S95H"
+    "QN65S95H",
+    "QN65S90F"
   ],
   "references": [
     {
-      "mpn": "QN65S85FAFXZC",
+      "mpn": "QN65S85HAEXZC",
       "source": "HomeGadgets snapshot (search_products, Toronto)",
-      "hg_product_id": "75daad32-4100-45db-8bb2-26ed4fae1e41",
-      "hg_name": "65\" OLED S85F 4K Vision AI Smart TV",
-      "best_new_price_cad": 1709.25,
-      "retailer": "Leon's",
-      "retailer_count": 6,
-      "observed_at": null,
-      "condition_status": null
+      "hg_product_id": "e6681b7d-ea7a-4580-a00e-ed034d7511a8",
+      "hg_name": "65\" OLED S85H 4K Samsung Vision AI Smart TV (2026)",
+      "best_new_price_cad": 1398,
+      "retailer": "Electronique Hi-Fi",
+      "retailer_count": 29,
+      "observed_at": "2026-11-21T14:23:07.049564+00:00",
+      "condition_status": "assumed_new"
     },
     {
       "mpn": "QN65S90HAEXZC",
@@ -37,7 +37,7 @@
       "hg_name": "65\" OLED S90H 4K Samsung Vision AI Smart TV (2026)",
       "best_new_price_cad": 1998,
       "retailer": "2001 Audio Video",
-      "retailer_count": 30,
+      "retailer_count": 29,
       "observed_at": null,
       "condition_status": null
     },
@@ -47,11 +47,11 @@
       "hg_product_id": "de1204bf-51c0-4657-8ddb-cafe93c4827a",
       "hg_name": "65 Inch LG OLED AI B6E 4K Smart TV 2026",
       "hg_model": "OLED65B6EUA",
-      "best_new_price_cad": 1099,
-      "retailer": "Electro Rive-Sud",
+      "best_new_price_cad": 1297.99,
+      "retailer": "Costco",
       "retailer_count": 15,
-      "observed_at": "2026-11-15T03:18:33.338572+00:00",
-      "condition_status": "assumed_new"
+      "observed_at": "2026-11-14T11:32:12.686724+00:00",
+      "condition_status": null
     },
     {
       "mpn": "OLED65C6PUA",
@@ -59,37 +59,39 @@
       "hg_product_id": "e64f6194-da22-41aa-b37d-1e98df1a5545",
       "hg_name": "65 Inch LG OLED evo AI C6 4K Smart TV 2026",
       "hg_model": "OLED65C6PUA",
-      "best_new_price_cad": 1997.99,
-      "retailer": "2001 Audio Video",
-      "retailer_count": 22,
-      "observed_at": "2026-11-14T19:31:04.818972+00:00",
-      "condition_status": null
+      "best_new_price_cad": 1799,
+      "retailer": "Electro Rive-Sud",
+      "retailer_count": 21,
+      "observed_at": "2026-11-22T02:55:14.171256+00:00",
+      "condition_status": "assumed_new"
     }
   ],
   "offers": [
     {
-      "product_id": "gid://shopify/p/4huc4PesT4ChS0Qr5KaOwO",
-      "variant_id": "gid://shopify/ProductVariant/67858989809977",
-      "title": "LG OLED evo C3 65 4K UHD Smart OLED TV with Dolby Vision & Atmos, Gaming Mode, AI Processor, Alexa Built-in",
-      "mpn": null,
-      "brand": "LG",
-      "merchant": "Optimum Nutrition",
-      "seller_domain": "1fvz8g-es.myshopify.com",
-      "seller_url": "https://onehoma.com",
-      "price": 72,
+      "product_id": "gid://shopify/p/2qRQMIMYTZZ5VrU16xO6ZW",
+      "variant_id": "gid://shopify/ProductVariant/43218106286169",
+      "title": "Samsung S90F 65\" OLED 4K Vision AI Smart TV (QN65S90F)  - Fair",
+      "mpn": "QN65S90F",
+      "brand": "Samsung",
+      "merchant": "TVOUTLET.CA",
+      "seller_domain": "tvoutlet-ca.myshopify.com",
+      "seller_url": "https://www.tvoutlet.ca",
+      "price": 599.99,
       "currency": "CAD",
-      "product_url": "https://onehoma.com/products/lg-oled-evo-c3-65-4k-uhd-smart-oled-tv-with-dolby-vision-atmos-gaming-mode-ai-processor-alexa-built-in?variant=67858989809977&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://www.tvoutlet.ca/products/samsung-s90f-65-oled-4k-vision-ai-smart-tv-qn65s90f-copy?variant=43218106286169&_gsid=KnZQcLbGomqa&utm_source=shopify&utm_medium=catalog",
       "condition": [
-        "new"
+        "secondhand"
       ],
-      "captured_at": "2026-11-19T16:36:50Z",
+      "captured_at": "2026-11-22T22:12:39Z",
       "reference": null,
       "verified_reference": false,
       "percent_of_reference": null,
-      "status": "no_reference",
-      "excluded": false,
-      "reasons": [],
-      "reason": "No verified reference: no model number in the title."
+      "status": "excluded",
+      "excluded": true,
+      "reasons": [
+        "Not new: Shopify lists the condition as secondhand."
+      ],
+      "reason": "Not new: Shopify lists the condition as secondhand."
     },
     {
       "product_id": "gid://shopify/p/7M29FYWQG1nPaBZnx1YDCC",
@@ -102,25 +104,25 @@
       "seller_url": "https://techspirit.ca",
       "price": 997,
       "currency": "CAD",
-      "product_url": "https://techspirit.ca/products/lg-65-class-oledb6e-series-4k-oled-tv-oled65b6eua-six-months-warranty?variant=52951968874727&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://techspirit.ca/products/lg-65-class-oledb6e-series-4k-oled-tv-oled65b6eua-six-months-warranty?variant=52951968874727&_gsid=KnZQcLbGomqa&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "secondhand"
       ],
-      "captured_at": "2026-11-19T16:36:50Z",
+      "captured_at": "2026-11-22T22:12:39Z",
       "reference": {
         "mpn": "OLED65B6EUA",
         "source": "HomeGadgets get_price by MPN (Toronto)",
         "hg_product_id": "de1204bf-51c0-4657-8ddb-cafe93c4827a",
         "hg_name": "65 Inch LG OLED AI B6E 4K Smart TV 2026",
         "hg_model": "OLED65B6EUA",
-        "best_new_price_cad": 1099,
-        "retailer": "Electro Rive-Sud",
+        "best_new_price_cad": 1297.99,
+        "retailer": "Costco",
         "retailer_count": 15,
-        "observed_at": "2026-11-15T03:18:33.338572+00:00",
-        "condition_status": "assumed_new"
+        "observed_at": "2026-11-14T11:32:12.686724+00:00",
+        "condition_status": null
       },
       "verified_reference": true,
-      "percent_of_reference": 91,
+      "percent_of_reference": 77,
       "status": "excluded",
       "excluded": true,
       "reasons": [
@@ -131,29 +133,40 @@
       "reason": "Not new: Shopify lists the condition as secondhand."
     },
     {
-      "product_id": "gid://shopify/p/6lO9MwLZPQIetAoLN3JYkV",
-      "variant_id": "gid://shopify/ProductVariant/53777285546168",
-      "title": "Téléviseur OLED 65'' - LG - OLED65B6EU",
-      "mpn": "OLED65B6EU",
+      "product_id": "gid://shopify/p/55WtPT5a1nlUUfMoouMphQ",
+      "variant_id": "gid://shopify/ProductVariant/53761759314104",
+      "title": "Téléviseur 65'' OLED - LG - OLED65B6EUA",
+      "mpn": "OLED65B6EUA",
       "brand": "LG",
       "merchant": "Électroménagers Rive-Sud",
       "seller_domain": "liquidation-electromenagers-rive-sud.myshopify.com",
       "seller_url": "https://www.electromenagersrivesud.ca",
       "price": 1099,
       "currency": "CAD",
-      "product_url": "https://www.electromenagersrivesud.ca/products/televiseur-oled-65-lg-oled65b6eu-boite-ouverte?variant=53777285546168&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://www.electromenagersrivesud.ca/products/televiseur-65-oled-lg-oled65b6eua?variant=53761759314104&_gsid=KnZQcLbGomqa&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "secondhand"
       ],
-      "captured_at": "2026-11-19T16:36:50Z",
-      "reference": null,
-      "verified_reference": false,
-      "percent_of_reference": null,
+      "captured_at": "2026-11-22T22:12:39Z",
+      "reference": {
+        "mpn": "OLED65B6EUA",
+        "source": "HomeGadgets get_price by MPN (Toronto)",
+        "hg_product_id": "de1204bf-51c0-4657-8ddb-cafe93c4827a",
+        "hg_name": "65 Inch LG OLED AI B6E 4K Smart TV 2026",
+        "hg_model": "OLED65B6EUA",
+        "best_new_price_cad": 1297.99,
+        "retailer": "Costco",
+        "retailer_count": 15,
+        "observed_at": "2026-11-14T11:32:12.686724+00:00",
+        "condition_status": null
+      },
+      "verified_reference": true,
+      "percent_of_reference": 85,
       "status": "excluded",
       "excluded": true,
       "reasons": [
         "Not new: Shopify lists the condition as secondhand.",
-        "Not new: the seller's product link says \"boite ouverte\"."
+        "Below every verified new price for this model. Condition or seller not verified."
       ],
       "reason": "Not new: Shopify lists the condition as secondhand."
     },
@@ -168,25 +181,59 @@
       "seller_url": "https://gibbyselectronicsupermarket.ca",
       "price": 1297.99,
       "currency": "CAD",
-      "product_url": "https://gibbyselectronicsupermarket.ca/products/lg-oled65b6eua-65-oled-ai-b6e-4k-smart-tv-2026-model?variant=52294539247890&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://gibbyselectronicsupermarket.ca/products/lg-oled65b6eua-65-oled-ai-b6e-4k-smart-tv-2026-model?variant=52294539247890&_gsid=KnZQcLbGomqa&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "new"
       ],
-      "captured_at": "2026-11-19T16:36:50Z",
+      "captured_at": "2026-11-22T22:12:39Z",
       "reference": {
         "mpn": "OLED65B6EUA",
         "source": "HomeGadgets get_price by MPN (Toronto)",
         "hg_product_id": "de1204bf-51c0-4657-8ddb-cafe93c4827a",
         "hg_name": "65 Inch LG OLED AI B6E 4K Smart TV 2026",
         "hg_model": "OLED65B6EUA",
-        "best_new_price_cad": 1099,
-        "retailer": "Electro Rive-Sud",
+        "best_new_price_cad": 1297.99,
+        "retailer": "Costco",
         "retailer_count": 15,
-        "observed_at": "2026-11-15T03:18:33.338572+00:00",
+        "observed_at": "2026-11-14T11:32:12.686724+00:00",
+        "condition_status": null
+      },
+      "verified_reference": true,
+      "percent_of_reference": 100,
+      "status": "eligible",
+      "excluded": false,
+      "reasons": [],
+      "reason": null
+    },
+    {
+      "product_id": "gid://shopify/p/DrORIgjLu7AiOlEVAJBfY",
+      "variant_id": "gid://shopify/ProductVariant/67629308444899",
+      "title": "Téléviseur 65po OLED 4K, OLED HDR+ Anti-reflet, Samsung QN65S85HAEXZC",
+      "mpn": "QN65S85HAEXZC",
+      "brand": "Samsung",
+      "merchant": "Stereoplus.com",
+      "seller_domain": "stereoplus-com.myshopify.com",
+      "seller_url": "https://stereoplus.com",
+      "price": 1521.09,
+      "currency": "CAD",
+      "product_url": "https://stereoplus.com/products/samsung-televiseur-intelligent-oled-vision-ai-de-65-pouces-qn65s85haexzc?variant=67629308444899&_gsid=KnZQcLbGomqa&utm_source=shopify&utm_medium=catalog",
+      "condition": [
+        "new"
+      ],
+      "captured_at": "2026-11-22T22:12:39Z",
+      "reference": {
+        "mpn": "QN65S85HAEXZC",
+        "source": "HomeGadgets snapshot (search_products, Toronto)",
+        "hg_product_id": "e6681b7d-ea7a-4580-a00e-ed034d7511a8",
+        "hg_name": "65\" OLED S85H 4K Samsung Vision AI Smart TV (2026)",
+        "best_new_price_cad": 1398,
+        "retailer": "Electronique Hi-Fi",
+        "retailer_count": 29,
+        "observed_at": "2026-11-21T14:23:07.049564+00:00",
         "condition_status": "assumed_new"
       },
       "verified_reference": true,
-      "percent_of_reference": 118,
+      "percent_of_reference": 109,
       "status": "eligible",
       "excluded": false,
       "reasons": [],
@@ -203,25 +250,25 @@
       "seller_url": "https://kjdist.ca",
       "price": 1699,
       "currency": "CAD",
-      "product_url": "https://kjdist.ca/products/lg-oled65c6pua-65-oled-4k-ai-smart-tv-%CE%B111-ai-processor-4k-gen3-webos-26-factory-refurbished?variant=49564630286592&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://kjdist.ca/products/lg-oled65c6pua-65-oled-4k-ai-smart-tv-%CE%B111-ai-processor-4k-gen3-webos-26-factory-refurbished?variant=49564630286592&_gsid=KnZQcLbGomqa&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "secondhand"
       ],
-      "captured_at": "2026-11-19T16:36:50Z",
+      "captured_at": "2026-11-22T22:12:39Z",
       "reference": {
         "mpn": "OLED65C6PUA",
         "source": "HomeGadgets get_price by MPN (Toronto)",
         "hg_product_id": "e64f6194-da22-41aa-b37d-1e98df1a5545",
         "hg_name": "65 Inch LG OLED evo AI C6 4K Smart TV 2026",
         "hg_model": "OLED65C6PUA",
-        "best_new_price_cad": 1997.99,
-        "retailer": "2001 Audio Video",
-        "retailer_count": 22,
-        "observed_at": "2026-11-14T19:31:04.818972+00:00",
-        "condition_status": null
+        "best_new_price_cad": 1799,
+        "retailer": "Electro Rive-Sud",
+        "retailer_count": 21,
+        "observed_at": "2026-11-22T02:55:14.171256+00:00",
+        "condition_status": "assumed_new"
       },
       "verified_reference": true,
-      "percent_of_reference": 85,
+      "percent_of_reference": 94,
       "status": "excluded",
       "excluded": true,
       "reasons": [
@@ -242,11 +289,11 @@
       "seller_url": "https://electroniquehifi.ca",
       "price": 1998,
       "currency": "CAD",
-      "product_url": "https://electroniquehifi.ca/products/samsung-led-tv-65-qn65s90haexzc?variant=52014931378478&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://electroniquehifi.ca/products/samsung-led-tv-65-qn65s90haexzc?variant=52014931378478&_gsid=KnZQcLbGomqa&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "new"
       ],
-      "captured_at": "2026-11-19T16:36:50Z",
+      "captured_at": "2026-11-22T22:12:39Z",
       "reference": {
         "mpn": "QN65S90HAEXZC",
         "source": "HomeGadgets snapshot (search_products, Toronto)",
@@ -254,46 +301,12 @@
         "hg_name": "65\" OLED S90H 4K Samsung Vision AI Smart TV (2026)",
         "best_new_price_cad": 1998,
         "retailer": "2001 Audio Video",
-        "retailer_count": 30,
+        "retailer_count": 29,
         "observed_at": null,
         "condition_status": null
       },
       "verified_reference": true,
       "percent_of_reference": 100,
-      "status": "eligible",
-      "excluded": false,
-      "reasons": [],
-      "reason": null
-    },
-    {
-      "product_id": "gid://shopify/p/75ObR88FeRfWkZZInNPes7",
-      "variant_id": "gid://shopify/ProductVariant/48313964200107",
-      "title": "Samsung Téléviseur intelligent OLED 4K de 65 pouces QN65S85FAFXZC",
-      "mpn": "QN65S85FAFXZC",
-      "brand": "Samsung",
-      "merchant": "Meubles Gilles Émond Inc.",
-      "seller_domain": "meubles-gilles-emond-inc.myshopify.com",
-      "seller_url": "https://www.meublesgillesemond.com",
-      "price": 2321.09,
-      "currency": "CAD",
-      "product_url": "https://www.meublesgillesemond.com/products/samsung-televiseur-intelligent-oled-4k-de-65-pouces-qn65s85fafxzc?variant=48313964200107&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
-      "condition": [
-        "new"
-      ],
-      "captured_at": "2026-11-19T16:36:50Z",
-      "reference": {
-        "mpn": "QN65S85FAFXZC",
-        "source": "HomeGadgets snapshot (search_products, Toronto)",
-        "hg_product_id": "75daad32-4100-45db-8bb2-26ed4fae1e41",
-        "hg_name": "65\" OLED S85F 4K Vision AI Smart TV",
-        "best_new_price_cad": 1709.25,
-        "retailer": "Leon's",
-        "retailer_count": 6,
-        "observed_at": null,
-        "condition_status": null
-      },
-      "verified_reference": true,
-      "percent_of_reference": 136,
       "status": "eligible",
       "excluded": false,
       "reasons": [],
@@ -310,11 +323,11 @@
       "seller_url": "https://www.ayreborn.com",
       "price": 2998,
       "currency": "CAD",
-      "product_url": "https://www.ayreborn.com/products/samsung-qn65s95h-2026-65-oled-tv?variant=53436196192563&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://www.ayreborn.com/products/samsung-qn65s95h-2026-65-oled-tv?variant=53436196192563&_gsid=KnZQcLbGomqa&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "new"
       ],
-      "captured_at": "2026-11-19T16:36:50Z",
+      "captured_at": "2026-11-22T22:12:39Z",
       "reference": null,
       "verified_reference": false,
       "percent_of_reference": null,
@@ -324,31 +337,30 @@
       "reason": "No verified reference: HomeGadgets does not carry QN65S95H."
     },
     {
-      "product_id": "gid://shopify/p/47zttPfVkhRWP2P8mrKfH8",
-      "variant_id": "gid://shopify/ProductVariant/42108241018926",
-      "title": "LG 65\" C6 OLED 4K Smart webOS TV (OLED65C6PUA.ACC) - 2026 Model | Téléviseur intelligent DELO LG C6 4K de 65 po avec webOS (OLED65C6PUA.ACC) - modèle 2026",
-      "mpn": "OLED65C6PUA",
-      "brand": "LG",
+      "product_id": "gid://shopify/p/2oiXOw6FZSLB5w2eVS29XZ",
+      "variant_id": "gid://shopify/ProductVariant/42230796124206",
+      "title": "SAMSUNG 65\" S90H OLED 4K Vision AI Smart TV (QN65S90HAEXZC) - 2026 Model | Téléviseur intelligent DELO SAMSUNG S90H 4K de 65 po avec Vision AI (QN65S90HAEXZC) - modèle 2026",
+      "mpn": "QN65S90HAEXZC",
+      "brand": "Samsung",
       "merchant": "The Brick",
       "seller_domain": "the-brick-furniture.myshopify.com",
       "seller_url": "https://www.thebrick.com",
       "price": 777777,
       "currency": "CAD",
-      "product_url": "https://www.thebrick.com/products/lg-65-c6-oled-4k-smart-webos-tv-oled65c6pua-acc-2026-model?variant=42108241018926&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://www.thebrick.com/products/samsung-65-s90h-oled-4k-vision-ai-smart-tv-qn65s90haexzc?variant=42230796124206&_gsid=KnZQcLbGomqa&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "new"
       ],
-      "captured_at": "2026-11-19T16:36:50Z",
+      "captured_at": "2026-11-22T22:12:39Z",
       "reference": {
-        "mpn": "OLED65C6PUA",
-        "source": "HomeGadgets get_price by MPN (Toronto)",
-        "hg_product_id": "e64f6194-da22-41aa-b37d-1e98df1a5545",
-        "hg_name": "65 Inch LG OLED evo AI C6 4K Smart TV 2026",
-        "hg_model": "OLED65C6PUA",
-        "best_new_price_cad": 1997.99,
+        "mpn": "QN65S90HAEXZC",
+        "source": "HomeGadgets snapshot (search_products, Toronto)",
+        "hg_product_id": "adc6ff0a-15ae-4181-9539-21ef0891b0f8",
+        "hg_name": "65\" OLED S90H 4K Samsung Vision AI Smart TV (2026)",
+        "best_new_price_cad": 1998,
         "retailer": "2001 Audio Video",
-        "retailer_count": 22,
-        "observed_at": "2026-11-14T19:31:04.818972+00:00",
+        "retailer_count": 29,
+        "observed_at": null,
         "condition_status": null
       },
       "verified_reference": true,
@@ -371,25 +383,25 @@
       "seller_url": "https://www.leons.ca",
       "price": 777777,
       "currency": "CAD",
-      "product_url": "https://www.leons.ca/products/lg-65-4k-smart-oled-evo-ai-c6-webos-tv-oled65c6puaacc?variant=42155876155438&_gsid=pm29hhdjdYqS&utm_source=shopify&utm_medium=catalog",
+      "product_url": "https://www.leons.ca/products/lg-65-4k-smart-oled-evo-ai-c6-webos-tv-oled65c6puaacc?variant=42155876155438&_gsid=KnZQcLbGomqa&utm_source=shopify&utm_medium=catalog",
       "condition": [
         "new"
       ],
-      "captured_at": "2026-11-19T16:36:50Z",
+      "captured_at": "2026-11-22T22:12:39Z",
       "reference": {
         "mpn": "OLED65C6PUA",
         "source": "HomeGadgets get_price by MPN (Toronto)",
         "hg_product_id": "e64f6194-da22-41aa-b37d-1e98df1a5545",
         "hg_name": "65 Inch LG OLED evo AI C6 4K Smart TV 2026",
         "hg_model": "OLED65C6PUA",
-        "best_new_price_cad": 1997.99,
-        "retailer": "2001 Audio Video",
-        "retailer_count": 22,
-        "observed_at": "2026-11-14T19:31:04.818972+00:00",
-        "condition_status": null
+        "best_new_price_cad": 1799,
+        "retailer": "Electro Rive-Sud",
+        "retailer_count": 21,
+        "observed_at": "2026-11-22T02:55:14.171256+00:00",
+        "condition_status": "assumed_new"
       },
       "verified_reference": true,
-      "percent_of_reference": 38928,
+      "percent_of_reference": 43234,
       "status": "excluded",
       "excluded": true,
       "reasons": [
@@ -398,5 +410,28 @@
       "reason": "Outlier: $777,777.00 is above $50,000."
     }
   ],
-  "anomalies": []
+  "anomalies": [
+    {
+      "product_id": "gid://shopify/p/2oiXOw6FZSLB5w2eVS29XZ",
+      "title": "SAMSUNG 65\" S90H OLED 4K Vision AI Smart TV (QN65S90HAEXZC) - 2026 Model | Téléviseur intelligent DELO SAMSUNG S90H 4K de 65 po avec Vision AI (QN65S90HAEXZC) - modèle 2026",
+      "seller": "The Brick",
+      "variants_returned": 10,
+      "variants_from_seller": 10,
+      "median_price": 1999.95,
+      "usual_price_from_seller": 1999.95,
+      "odd_variants": [
+        {
+          "variant_id": "gid://shopify/ProductVariant/42230796124206",
+          "title": "SAMSUNG 65\" S90H OLED 4K Vision AI Smart TV (QN65S90HAEXZC) - 2026 Model | Téléviseur intelligent DELO SAMSUNG S90H 4K de 65 po avec Vision AI (QN65S90HAEXZC) - modèle 2026",
+          "price": 777777
+        },
+        {
+          "variant_id": "gid://shopify/ProductVariant/42230796156974",
+          "title": "SAMSUNG 65\" S90H OLED 4K Vision AI Smart TV (QN65S90HAEXZC) - 2026 Model | Téléviseur intelligent DELO SAMSUNG S90H 4K de 65 po avec Vision AI (QN65S90HAEXZC) - modèle 2026",
+          "price": 777777
+        }
+      ],
+      "note": "Shopify returns at most 10 variants per product, so the seller may list more."
+    }
+  ]
 }

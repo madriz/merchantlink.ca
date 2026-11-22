@@ -1,9 +1,9 @@
 {
-  "captured_at": "2026-11-19T16:36:52Z",
+  "captured_at": "2026-11-22T22:12:41Z",
   "source": "Bank of Canada Valet API, FXUSDCAD",
   "status": "ok",
   "series": "FXUSDCAD",
-  "date": "2026-11-18",
-  "usd_cad": 1.4326,
+  "date": "2026-11-20",
+  "usd_cad": 1.4325,
   "note": "1 USD in CAD. Display only. Prices are not converted for ranking."
 }
