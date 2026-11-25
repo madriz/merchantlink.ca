@@ -1,27 +1,204 @@
 {
-  "captured_at": "2026-11-22T22:14:59Z",
+  "captured_at": "2026-11-25T19:05:58Z",
   "source": "Visa Developer sandbox, sandbox.api.visa.com",
   "status": "partial",
-  "error": "VIC probe connection failed (ECONNRESET). Onboarding items are listed in needs.",
+  "error": "Enrol card (tokenize) not completed: VTS PAN enrolment returned connection failed (ECONNRESET).",
   "helloworld": {
     "http": 200,
     "message": "helloworld",
-    "timestamp": "2026-11-22T22:14:59"
+    "at": "2026-11-25T19:05:58Z",
+    "correlation_id": "1795633558_189_1401570090_-75b9f6d769w9_VDP_WS"
   },
-  "vic": {
-    "endpoint": "POST /vts/merchant-api-ic/onboarding",
+  "diagnostic": {
+    "purpose": "VIC reachability with two-way SSL and MLE, no token",
+    "request": {
+      "method": "POST",
+      "host": "sandbox.api.visa.com",
+      "path": "/vacp/v1/cards",
+      "headers": {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "authorization": "Basic [redacted]",
+        "x-request-id": "<uuid per call>",
+        "keyId": "<MLE key ID, redacted>"
+      },
+      "auth": "two-way SSL client certificate plus Basic auth",
+      "body_encoding": "MLE: {\"encData\": \"<JWE RSA-OAEP-256, A128GCM>\"}",
+      "body": {
+        "clientReferenceId": "f0598b19-fd4f-4019-b648-a02cdca379f7",
+        "client": {
+          "agentId": "11111111111"
+        },
+        "consumer": {
+          "consumerId": "...a7b9",
+          "countryCode": "CA",
+          "languageCode": "en",
+          "consumerIdentities": [
+            {
+              "identityType": "USER_NAME",
+              "identityValue": "merchantlink-demo-shopper",
+              "identityProvider": "PARTNER"
+            }
+          ]
+        },
+        "appInstance": {
+          "applicationName": "MerchantLink demo",
+          "userAgent": "MerchantLink-demo/0.1",
+          "countryCode": "CA",
+          "ipAddress": "192.0.2.10",
+          "clientDeviceId": "...6f25",
+          "deviceData": {
+            "type": "Desktop",
+            "manufacturer": "Generic",
+            "brand": "Generic",
+            "model": "Browser"
+          }
+        },
+        "enrollmentReferenceData": {
+          "enrollmentReferenceId": null,
+          "enrollmentReferenceType": "TOKEN_REFERENCE_ID",
+          "enrollmentReferenceProvider": "VTS"
+        },
+        "consentData": [
+          {
+            "id": "faabd809-56ae-4765-9b9f-1666b0c41dbb",
+            "type": "PERSONALIZATION",
+            "source": "CLIENT",
+            "acceptedTime": "1795633558",
+            "effectiveUntil": "1795637158"
+          }
+        ]
+      }
+    },
+    "endpoint": "POST /vacp/v1/cards",
+    "mle": true,
+    "at": "2026-11-25T19:05:58Z",
+    "http": 400,
+    "correlation_id": "1795633558_313_69030514_-75b9f6d769r_VDP_WS",
+    "request_id": "92636abc-8b14-46f2-885e-67e419fd803e",
+    "response_ids": {
+      "x-correlation-id": "1795633558_313_69030514_-75b9f6d769r_VDP_WS"
+    },
+    "result": "enrollmentReferenceData.enrollmentReferenceId: must not be null, client.externalClientId: Invalid Client Id, client.externalAppId: must not be null, client.externalAppId: Invalid Client Id, client.externalClientId: must not be null",
+    "response": {
+      "errorDetail": [
+        {
+          "message": "must not be null",
+          "reason": "NotNull"
+        },
+        {
+          "message": "Invalid Client Id",
+          "reason": "ValidClient"
+        },
+        {
+          "message": "must not be null",
+          "reason": "NotNull"
+        },
+        {
+          "message": "Invalid Client Id",
+          "reason": "ValidClient"
+        },
+        {
+          "message": "must not be null",
+          "reason": "NotNull"
+        }
+      ],
+      "message": "enrollmentReferenceData.enrollmentReferenceId: must not be null, client.externalClientId: Invalid Client Id, client.externalAppId: must not be null, client.externalAppId: Invalid Client Id, client.externalClientId: must not be null",
+      "reason": "Invalid request content",
+      "status": "400"
+    }
+  },
+  "auth": "Two-way SSL client certificate plus Basic auth on every call. MLE (JWE RSA-OAEP-256, A128GCM) on VIC calls.",
+  "mle": {
+    "key_id": "...49c1",
+    "server_cert_expires": "2027-11-19"
+  },
+  "agent_id": "11111111111",
+  "pick": {
+    "source": "homegadgets",
+    "title": "LG 65\" B5 4K UHD HDR OLED Smart TV - 2025",
+    "merchant": "Visions Electronics",
+    "tax": "HST 13%",
+    "amount": 1353.74,
+    "currency": "CAD"
+  },
+  "steps": [
+    {
+      "id": "enrol",
+      "label": "Enrol card (tokenize)",
+      "status": "failed",
+      "at": "2026-11-25T19:05:58Z",
+      "http": 0,
+      "correlation_id": null,
+      "result": "connection failed (ECONNRESET)",
+      "values": null,
+      "calls": [
+        {
+          "endpoint": "POST /vts/panEnrollments",
+          "mle": false,
+          "at": "2026-11-25T19:05:58Z",
+          "http": 0,
+          "correlation_id": null,
+          "request_id": "fd00ed86-93e0-49ca-ac9a-7aad577a63f9",
+          "response_ids": {},
+          "result": "connection failed (ECONNRESET)",
+          "name": "VTS PAN enrolment"
+        }
+      ]
+    },
+    {
+      "id": "instruction",
+      "label": "Payment instruction (mandate)",
+      "status": "not_run",
+      "calls": []
+    },
+    {
+      "id": "credential",
+      "label": "Payment credential",
+      "status": "not_run",
+      "calls": []
+    },
+    {
+      "id": "confirm",
+      "label": "Confirm outcome",
+      "status": "not_run",
+      "calls": []
+    }
+  ],
+  "blocked": {
+    "step": "enrol",
+    "call": "VTS PAN enrolment",
+    "request": {
+      "method": "POST",
+      "host": "sandbox.api.visa.com",
+      "path": "/vts/panEnrollments",
+      "headers": {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "authorization": "Basic [redacted]",
+        "x-request-id": "<uuid per call>"
+      },
+      "auth": "two-way SSL client certificate plus Basic auth",
+      "body_encoding": "plain JSON",
+      "body": {
+        "clientReferenceId": "f0598b19-fd4f-4019-b648-a02cdca379f7",
+        "panSource": "MANUALLYENTERED",
+        "consumerEntryMode": "KEYENTERED",
+        "presentationType": [
+          "ECOM"
+        ],
+        "locale": "en_CA"
+      }
+    },
+    "endpoint": "POST /vts/panEnrollments",
+    "mle": false,
+    "at": "2026-11-25T19:05:58Z",
     "http": 0,
-    "code": null,
-    "message": "connection failed (ECONNRESET)"
+    "correlation_id": null,
+    "request_id": "fd00ed86-93e0-49ca-ac9a-7aad577a63f9",
+    "response_ids": {},
+    "result": "connection failed (ECONNRESET)",
+    "name": "VTS PAN enrolment"
   },
-  "note": "Two-way SSL works. Visa Intelligent Commerce needs onboarding before a sandbox call succeeds.",
-  "needs": [
-    "Visa Intelligent Commerce access for the project \"MerchantLink demo\" (Visa approves each environment).",
-    "VIC API key and shared secret (X-Pay-Token).",
-    "Message Level Encryption: the MLE server certificate, a client MLE private key and its key ID.",
-    "External Client ID and External App ID issued by Visa.",
-    "TRID and BID from the Visa regional product team.",
-    "Visa Token Service sandbox credentials (VTS API key and shared secret).",
-    "A test card enrolled and tokenized in VTS, giving a vProvisionedTokenId and a consumer ID."
-  ]
+  "note": "Two-way SSL works. The Visa Intelligent Commerce flow stopped at the step marked failed. Later steps did not run."
 }
