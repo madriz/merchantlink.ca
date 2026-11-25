@@ -1,12 +1,12 @@
 {
-  "captured_at": "2026-11-19T10:22:32Z",
+  "captured_at": "2026-11-22T22:14:59Z",
   "source": "Stripe test mode, test_helpers/shared_payment/granted_tokens",
   "status": "ok",
   "stripe_version": "2026-09-30.preview",
-  "token_id_prefix": "spt_1UdS",
+  "token_id_prefix": "spt_1Uej",
   "amount": 135374,
   "currency": "CAD",
-  "expires_at": "2026-11-19T11:22:31Z",
+  "expires_at": "2026-11-22T23:14:59Z",
   "token_status": "active",
   "livemode": false,
   "offer": {

@@ -1,12 +1,12 @@
 {
-  "captured_at": "2026-11-19T10:22:33Z",
+  "captured_at": "2026-11-22T22:14:59Z",
   "source": "Visa Developer sandbox, sandbox.api.visa.com",
   "status": "partial",
   "error": "VIC probe connection failed (ECONNRESET). Onboarding items are listed in needs.",
   "helloworld": {
     "http": 200,
     "message": "helloworld",
-    "timestamp": "2026-11-19T10:22:33"
+    "timestamp": "2026-11-22T22:14:59"
   },
   "vic": {
     "endpoint": "POST /vts/merchant-api-ic/onboarding",
