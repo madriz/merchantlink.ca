@@ -1,6 +1,6 @@
 # MerchantLink
 
-> The verified catalog of Canadian merchants. MerchantLink aggregates the catalogs, offers and payment routes of Canadian small businesses across POS and payment providers (Square, Shopify, Clover, Moneris, Lightspeed and others), so participating banks and declared, verified shopping agents can reach them.
+> The verified catalog of Canadian merchants' catalogs. MerchantLink aggregates the catalogs, offers and payment routes of Canadian small businesses across POS and payment providers (Square, Shopify, Clover, Moneris, Lightspeed and others), so participating banks and declared, verified shopping agents can reach them.
 
 Based in Toronto, Ontario. Not incorporated; the name is MerchantLink.
 
